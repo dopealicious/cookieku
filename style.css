@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
 :root {
   --black: #1b1722;
-  --white: #f0f0f0;
+  --white: #e4e2e2;
   --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 * {
@@ -49,10 +53,10 @@ html::-webkit-scrollbar-thumb {
   align-items: center;
 }
 .header .logoContent .logo img {
-  height: 4rem;
+  height: 6rem;
 }
 .header .logoContent .logoName {
-  color: var(--black);
+  color: black;
   font-size: 2rem;
   font-weight: bolder;
 }
@@ -60,7 +64,7 @@ html::-webkit-scrollbar-thumb {
 .header .navbar a {
   font-size: 2rem;
   margin-right: 3rem;
-  color: var(--black);
+  color: black;
   font-weight: bold;
 }
 .header .navbar a:hover {
@@ -70,7 +74,7 @@ html::-webkit-scrollbar-thumb {
 .header .icon i {
   font-size: 2rem;
   margin-right: 2rem;
-  color: var(--black);
+  color: black;
   cursor: pointer;
 }
 
@@ -89,7 +93,7 @@ html::-webkit-scrollbar-thumb {
   height: 100%;
   font-size: 1.5rem;
   background-color: var(--white);
-  color: var(--black);
+  color: black;
   margin-right: 7%;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
@@ -121,7 +125,7 @@ html::-webkit-scrollbar-thumb {
   font-weight: bolder;
   margin-bottom: 2rem;
   line-height: 7rem;
-  color: var(--black);
+  color: black;
   text-shadow: var(--box-shadow);
 }
 .home .homeContent p {
@@ -134,7 +138,7 @@ html::-webkit-scrollbar-thumb {
 }
 .home .homeContent .home-btn button {
   font-size: 1.8rem;
-  background-color: var(--black);
+  background-color: black;
   color: var(--white);
   border-radius: 0.7rem;
   padding: 0.7rem 2.4rem;
@@ -150,5 +154,152 @@ section {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
-  color: var(--black);
+  color: black;
+}
+
+/* PROFILE */
+.img,
+.user-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.ftco-wrap-about {
+  background-position: bottom center !important;
+}
+.ftco-wrap-about .heading-section h2 {
+  font-weight: 600 !important;
+}
+
+.ftco-wrap-about .img {
+  width: 100%;
+}
+
+.intro {
+  width: 100%;
+  background: #ffffff;
+  padding-top: 102px;
+  padding-bottom: 0px;
+}
+
+.intro_image {
+  width: 100%;
+}
+
+.intro_image img {
+  max-width: 100%;
+}
+
+.intro_content {
+  position: absolute;
+
+  right: -65px;
+  width: 979px;
+  background: #ffffff;
+  border: solid 2px #b49388;
+  box-shadow: 0px 45px 70px rgba(0, 0, 0, 0.24);
+  z-index: 1;
+  padding-top: 55px;
+  padding-bottom: 59px;
+  padding-left: 70px;
+  padding-right: 50px;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 30px;
+}
+
+.intro_subtitle {
+  font-size: 28px;
+  font-family: "Poppins";
+}
+
+.intro_title {
+  margin-top: 6px;
+  font-family: "Great Vibes", cursive;
+  color: #9b4b15;
+  font-weight: 600;
+}
+
+.intro_title h2 {
+  font-size: 40px;
+}
+
+.intro_text {
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.ftco-animate {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* FOOTER */
+.footer {
+  color: black;
+  background-size: cover;
+  background-position: center center;
+}
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+.footer .box-container .mainBox .content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.footer .box-container .mainBox .content h1 {
+  font-size: 2rem;
+  color: black;
+}
+.footer .box-container .mainBox p {
+  font-size: 1.7rem;
+  line-height: 1.3;
+  margin-bottom: 2rem;
+}
+.footer .box-container .box h3 {
+  font-size: 2.2rem;
+  color: black;
+  padding: 1rem 0;
+}
+.footer .box-container .box a {
+  display: block;
+  font-size: 1.6rem;
+  color: black;
+  padding: 1rem 0;
+}
+.footer .box-container .box a i {
+  padding-right: 0.5rem;
+  color: black;
+}
+.footer .box-container .box a:hover i {
+  padding-right: 2rem;
+}
+
+.footer .share {
+  padding: 1rem 0;
+  text-align: center;
+}
+.footer .share a {
+  height: 4rem;
+  width: 4rem;
+  line-height: 4rem;
+  font-size: 2rem;
+  color: white;
+  background: var(--black);
+  margin: 0 0.3rem;
+  border-radius: 50%;
+}
+.footer .share a:hover {
+  background: white;
+  color: black;
+}
+.footer .credit {
+  font-size: 2rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  color: black;
+  text-align: center;
 }
