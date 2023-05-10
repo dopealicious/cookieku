@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --black: #1b1722;
+  --white: #ffffff;
+  --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+* {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+  width: 0.8rem;
+}
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--white);
+  border-radius: 5rem;
+}
+.header {
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  padding: 1.4rem 7%;
+  z-index: 999;
+}
+.header .logoContent {
+  display: flex;
+  align-items: center;
+}
+.header .logoContent .logo img {
+  height: 6rem;
+}
+.header .logoContent .logoNamee {
+  color: black;
+  font-weight: bolder;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.header .navbar a {
+  font-size: 2rem;
+  margin-right: 3rem;
+  color: black;
+  font-weight: bold;
+}
+.header .navbar a:hover {
+  border-bottom: 0.1rem solid black;
+  padding-bottom: 0.4rem;
+}
+.header .icon i {
+  font-size: 2rem;
+  margin-right: 2rem;
+  color: black;
+  cursor: pointer;
+}
+
+.header .search {
+  display: none;
+  top: 100%;
+  margin: 1.5rem 7%;
+  background-color: transparent;
+  width: 50%;
+  right: 0;
+  height: 5rem;
+  position: absolute;
+}
+.header .search input {
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  background-color: var(--white);
+  color: black;
+  margin-right: 7%;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  box-shadow: var(--box-shadow);
+}
+.header .search.active {
+  display: inline-block;
+}
+#menu-bar {
+  display: none;
+}
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url(images/back.png) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.home .homeContent {
+  width: 50%;
+  float: left;
+  text-align: center;
+  padding: 4rem;
+}
+.home .homeContent h2 {
+  font-size: 7rem;
+  font-weight: bolder;
+  margin-bottom: 2rem;
+  line-height: 7rem;
+  color: black;
+  text-shadow: var(--box-shadow);
+}
+.home .homeContent p {
+  font-size: 1.8rem;
+  line-height: 2;
+  margin-bottom: 2rem;
+}
+.home .homeContent .home-btn {
+  height: 3rem;
+}
+.home .homeContent .home-btn button {
+  font-size: 1.8rem;
+  background-color: black;
+  color: var(--white);
+  border-radius: 0.7rem;
+  padding: 0.7rem 2.4rem;
+  cursor: pointer;
+}
+.home .homeContent .home-btn button:hover {
+  font-size: 2rem;
+}
+section {
+  padding: 2rem 7%;
+}
+.heading {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+  color: black;
+}
+
+/* PROFILE */
+.img,
+.user-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.ftco-wrap-about {
+  background-position: bottom center !important;
+}
+.ftco-wrap-about .heading-section h2 {
+  font-weight: 600 !important;
+}
+
+.ftco-wrap-about .img {
+  width: 100%;
+}
+
+.intro {
+  width: 100%;
+  background: #ffffff;
+  padding-top: 102px;
+  padding-bottom: 0px;
+}
+
+.intro_image {
+  width: 100%;
+}
+
+.intro_image img {
+  max-width: 100%;
+}
+
+.intro_content {
+  position: absolute;
+
+  right: -65px;
+  width: 979px;
+  background: #ffffff;
+  border: solid 2px #b49388;
+  box-shadow: 0px 45px 70px rgba(0, 0, 0, 0.24);
+  z-index: 1;
+  padding-top: 55px;
+  padding-bottom: 59px;
+  padding-left: 70px;
+  padding-right: 50px;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 30px;
+}
+
+.intro_subtitle {
+  font-size: 28px;
+  font-family: "Poppins";
+}
+
+.intro_title {
+  margin-top: 6px;
+  font-family: "Great Vibes", cursive;
+  color: #9b4b15;
+  font-weight: 600;
+}
+
+.intro_title h2 {
+  font-size: 40px;
+}
+
+.intro_text {
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.ftco-animate {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* FOOTER */
+.footer {
+  background-color: #d5c5b4;
+  color: black;
+  background-size: cover;
+  background-position: center center;
+}
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  margin-left: 2rem;
+}
+.footer .box-container .mainBox .logoContent {
+  display: flex;
+  align-items: center;
+  margin-top: 2.5rem;
+  font-size: 1.2rem;
+  margin-left: 9rem;
+  margin-right: 6rem;
+}
+.footer .box-container .mainBox .content h1 {
+  font-size: 2rem;
+  color: black;
+  font-size: 2.2rem;
+  line-height: 1.3;
+}
+.footer .box-container .mainBox p {
+  font-size: 1.7rem;
+  line-height: 1.3;
+  margin-top: 4rem;
+  margin-left: 9rem;
+}
+.footer .box-container .box h3 {
+  font-size: 2.2rem;
+  color: black;
+  padding: 2rem 0;
+}
+.footer .box-container .box a {
+  display: block;
+  font-size: 1.6rem;
+  color: black;
+  padding: 1rem 0;
+}
+.footer .box-container .box a i {
+  padding-right: 0.5rem;
+  color: black;
+}
+.footer .box-container .box a:hover i {
+  padding-right: 2rem;
+}
+
+.footer-distributed .footer-icons {
+  margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+.footer-distributed .footer-icons a:hover {
+  background-color: #3f71ea;
+}
