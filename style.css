@@ -1,4 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+/* LOGIN */
+a.tbl-pink{
+  background: #d5c5b4;
+  border-radius: 20px;
+  margin-top: 0px;
+  padding: 15px 15px 15px 15px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+a.tbl-pink:hover{
+  background: #cebf53;
+  text-decoration: none;
+  
+}
+
+
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -72,14 +90,14 @@ html::-webkit-scrollbar-thumb {
   border-bottom: 0.1rem solid black;
   padding-bottom: 0.4rem;
 }
-.header .icons div{
+.header .icons div {
   font-size: 2.5rem;
   margin-left: 1.7rem;
   color: var(--black);
   cursor: pointer;
 }
 
-.header .icons div:hover{
+.header .icons div:hover {
   color: var(--primary-color);
 }
 
