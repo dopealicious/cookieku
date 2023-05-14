@@ -1,4 +1,5 @@
 # Project Pemrograman Web 2023
-#### Lalu Mischa Khalqin Adhiguna 
-#### Lyudza Kansha Aprilia
-#### Novita Azzahra Mabruka
+Repo ini bertujuan untuk memenuhi tugas besar mata kuliah pemrograman web
+#### Lalu Mischa Khalqin Adhiguna
+#### Lyudza Aprilia Kansha 
+#### Novita Mabruka Azahra 
