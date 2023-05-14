@@ -12,13 +12,12 @@ body {
   font-family: sans-serif;
 }
 .container {
-  position: absolute;
+  position: relative;
   margin-top: 100px;
   width: 450px;
   height: auto;
   background: #f0ebe6;
   border-radius: 5px;
-  top: 12px;
 }
 .label {
   padding: 20px 130px;
@@ -45,15 +44,7 @@ body {
 .login_form .font2 {
   margin-top: 30px;
 }
-
-.sign-in-up {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-}
-
-.login_form .sign-in {
+.login_form button {
   margin: 45px 0 30px 0;
   height: 45px;
   width: 365px;
@@ -67,7 +58,7 @@ body {
   border: 1px solid #9b7078;
   transition: 0.5s;
 }
-.login_form .sign-in:hover {
+.login_form button:hover {
   background: #da9ca8;
 }
 .login_form #email_error,
@@ -83,29 +74,3 @@ body {
   border: 1px solid #ef9a9a;
   display: none;
 }
-
-/* register form start */
-.register-form {
-  /* position: absolute; */
-  background: red;
-  height: 60vh;
-  width: 60vh;
-  z-index: 2;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  display: flex;
-  margin: 24px;
-}
-
-/* .close-register {
-  position: absolute;
-  top: 40px;
-  right: 50px;
-} */
-
-.hide {
-  display: none;
-}
-/* register form end */
