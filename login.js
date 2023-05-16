@@ -1,15 +1,21 @@
-const closeButton = document.getElementById('close-register-button');
-const registerButton = document.getElementById('create-acc-button');
-console.log(1111, closeButton);
+const signUpButton = document.getElementById("signUp");
+const signInButton = document.getElementById("signIn");
+const container = document.getElementById("container");
 
+function login() {
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  if (email !== "" && password !== "") {
+    alert("Login berhasil!");
+  } else {
+    alert("Harap isi username dan password.");
+  }
+}
 
-closeButton.addEventListener('click', (e) => {
-    console.log(22222222, e);
-    
-    document.getElementsByClassName('register-form')[0].classList.add('hide');
-
+signUpButton.addEventListener("click", () => {
+  container.classList.add("right-panel-active");
 });
 
-registerButton.addEventListener('click', () => {
-    document.getElementsByClassName('register-form')[0].classList.remove('hide');
+signInButton.addEventListener("click", () => {
+  container.classList.remove("right-panel-active");
 });
