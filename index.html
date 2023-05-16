@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/3477ae541c.js" crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -31,14 +36,6 @@
         <div id="cart-btn" class="fas fa-shopping-cart"></div>
         <div id="menu-btn" class="fas fa-bars"></div>
       </div>
-      <!-- <div class="icon">
-        <i class="fas fa-search" id="search"></i>
-        <i class="fas fa-bars" id="menu-bar"></i>
-      </div>
-
-      <div class="search">
-        <input type="search" placeholder="search..." />
-      </div> -->
     </header>
 
     <section class="home" id="home">
@@ -108,9 +105,8 @@
       </div>
     </section>
 
-    <section class="menu" id="Menu">
+    <section class="menu" id="menu">
       <h1 class="heading">our <span> products</span></h1>
-
       <div class="box-container">
         <div class="box">
           <div class="image">
@@ -126,7 +122,7 @@
               <i class="fas fa-star"></i>
             </div>
             <span class="price">$15.99</span>
-            <a href="#" class="btn">Details</a>
+            <div class="btn" data-name="p-1">Details</div>
           </div>
         </div>
 
@@ -255,7 +251,7 @@
           </div>
         </div>
 
-        <div class="box">
+        <div class="box" data-name="p-1">
           <div class="image">
             <img src="assets/images/menu9.jpg" alt="" />
           </div>
@@ -268,12 +264,160 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <span class="price">$15.99</span>
+            <span class="price">$11.99</span>
             <a href="#" class="btn">Details</a>
           </div>
         </div>
+        </div>
       </div>
     </section>
+
+    <div class="menu-preview">   <!--products-preview-->
+      <div class="preview" data-target="p-1">
+          <i class="fa-solid fa-xmark"></i>
+         <img src="assets/images/menu1.jpg" alt="">
+         <h3>fresh coffee/h3>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+         </div>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+         <div class="price">$2.00</div>
+         <a href="#" class="buy">order now</a>
+      </div>
+   
+      <div class="preview" data-target="p-2">
+          <i class="fa-solid fa-xmark"></i>
+         <img src="assets/images/menu2.jpg" alt="">
+         <h3>fresh coffee</h3>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            
+         </div>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+         <div class="price">$2.00</div>
+         <a href="#" class="buy">order now</a>
+      </div>
+   
+      <div class="preview" data-target="p-3">
+          <i class="fa-solid fa-xmark"></i>
+          <img src="assets/image/menu3.jpg" alt="">
+          <h3>fresh coffee</h3>
+          <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+          <div class="price">$2.00</div>
+          <a href="#" class="buy">order now</a>
+      </div>  
+   
+      <div class="preview" data-target="p-4">
+          <i class="fa-solid fa-xmark"></i>
+          <img src="assets/image/menu4.jpg" alt="">
+          <h3>fresh coffee</h3>
+          <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+          <div class="price">$2.00</div>
+          <a href="#" class="buy">order now</a>
+      </div> 
+   
+      <div class="preview" data-target="p-5">
+          <i class="fa-solid fa-xmark"></i>
+          <img src="assets/image/menu5.jpg" alt="">
+          <h3>fresh coffee</h3>
+          <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+          <div class="price">$2.00</div>
+          <a href="#" class="buy">order now</a>
+      </div> 
+   
+      <div class="preview" data-target="p-6">
+          <i class="fa-solid fa-xmark"></i>
+          <img src="assets/image/menu6.jpg" alt="">
+          <h3>fresh coffee</h3>
+          <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+            <div class="price">$2.00</div>
+            <a href="#" class="buy">order now</a>
+      </div>
+
+      <div class="preview" data-target="p-4">
+        <i class="fa-solid fa-xmark"></i>
+        <img src="assets/image/menu7.jpg" alt="">
+        <h3>fresh coffee</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+        <div class="price">$2.00</div>
+        <a href="#" class="buy">order now</a>
+    </div> 
+ 
+    <div class="preview" data-target="p-5">
+        <i class="fa-solid fa-xmark"></i>
+        <img src="assets/image/menu8.jpg" alt="">
+        <h3>fresh coffee</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+        <div class="price">$2.00</div>
+        <a href="#" class="buy">order now</a>
+    </div> 
+ 
+    <div class="preview" data-target="p-6">
+        <i class="fa-solid fa-xmark"></i>
+        <img src="assets/image/menu9.jpg" alt="">
+        <h3>fresh coffee</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+          <div class="price">$2.00</div>
+          <a href="#" class="buy">order now</a>
+    </div>
+    </div>
 
     <section class="newsletter">
       <form action="">
@@ -330,6 +474,7 @@
         <a href="#"><i class="fa fa-youtube"></i></a>
       </div>
     </footer>
+
+    <script src="index.js"></script>
   </body>
-  <script src="index.js"></script>
 </html>
