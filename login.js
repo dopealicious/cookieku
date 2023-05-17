@@ -19,7 +19,8 @@ function sign() {
   var password = document.getElementById('password').value;
   if (name == '' || email == '' || password == '') {
     console.log('Hello world!');
-    alert('Sign-in success!')
+    alert('Your account has been created!')
+    
   } else {
     alert('Please enter the correct information!')
   }
