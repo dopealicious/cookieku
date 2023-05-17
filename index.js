@@ -1,37 +1,35 @@
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>;
+let navbar = document.querySelector(".header .navbar");
+let menu = document.querySelector("#menu-btn");
+
+menu.onclick = () => {
+  menu.classList.toggle("fa-times");
+  navbar.classList.toggle("active");
+};
+
+let cart = document.querySelector(".cart-items-container");
+
+document.querySelector("#cart-btn").onclick = () => {
+  cart.classList.add("active");
+};
+
+document.querySelector("#close-form").onclick = () => {
+  cart.classList.remove("active");
+};
 
 var swiper = new Swiper(".blogs-row", {
-  spaceBetween: 30,
+  grabCursor: true,
   loop: true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
+  cnteredSlides: true,
   navigation: {
-    nextE1: ".swiper-button-next",
-    prevE1: ".swiper-button-prev",
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 1,
-    },
-    1024: {
-      slidesPerView: 1,
-    },
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
+
 let previewMenu = document.querySelector(".menu-preview");
 let previewBox = previewMenu.querySelectorAll(".preview");
 
-document.querySelectorAll(".menu-container .box").forEach((product) => {
+document.querySelectorAll(".btn").forEach((product) => {
   product.onclick = () => {
     previewMenu.style.display = "flex";
     let name = product.getAttribute("data-name");

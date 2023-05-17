@@ -179,6 +179,90 @@ section {
   color: black;
 }
 
+/* shopping cart */
+
+.cart-items-container {
+  position: fixed;
+  top: 0;
+  right: -105%;
+  width: 35rem;
+  background: var(--white);
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+  justify-content: center;
+  height: 100%;
+  z-index: 1200;
+  padding: 2rem;
+  text-align: center;
+}
+.cart-items-container:hover {
+  /* transform: rotate(90deg); */
+  color: #c98d83;
+}
+.cart-items-container.active {
+  right: 0;
+  box-shadow: 0 0 0 100vw #c98d83;
+}
+
+.cart-items-container #close-form {
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  font-size: 4rem;
+  cursor: pointer;
+  color: var(--black);
+}
+
+.cart-items-container #close-form:hover {
+  transform: rotate(90deg);
+  color: #c98d83;
+}
+
+.cart-items-container .title {
+  font-size: 2.5rem;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.cart-items-container .cart-item {
+  position: relative;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cart-items-container .cart-item .fa-times {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.cart-items-container .cart-item .fa-times:hover {
+  color: var(--primary-color);
+}
+
+.cart-items-container .cart-item img {
+  height: 7rem;
+}
+
+.cart-items-container .cart-item .content h3 {
+  font-size: 2rem;
+  color: var(--black);
+  padding-bottom: 0.5rem;
+}
+
+.cart-items-container .cart-item .content .price {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-align: left;
+}
+
 /* ABOUT */
 .blogs {
   background: url(assets/images/backGround.png) no-repeat;
@@ -219,10 +303,25 @@ section {
   cursor: pointer;
 }
 .blogs .blogs-row .box .content a:hover {
-  color: black;
+  color: rgb(117, 74, 74);
   text-shadow: var(--box-shadow);
 }
-
+.blogs .box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+.blogs .box .content .btn {
+  animation: fadeIn 0.4s cubic-bezier(0.54, 1.3, 0.63, 1.34) 0.4s backwards;
+}
+.blogs .swiper-box.box-active .content {
+  display: inline-block;
+}
 .swiper-pagination-bullet {
   background-color: black;
 }
