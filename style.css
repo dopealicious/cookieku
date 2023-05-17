@@ -202,7 +202,7 @@ section {
 }
 .cart-items-container.active {
   right: 0;
-  box-shadow: 0 0 0 100vw #c98d83;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
 }
 
 .cart-items-container #close-form {
