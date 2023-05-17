@@ -7,9 +7,21 @@ function login() {
   var password = document.getElementById("password").value;
   if (email == '' || password == '') {
     console.log("Hello world!");
-    alert('Login berhasil!');
+    alert('Login success!');
   } else {
-    alert('Harap isi username dan password.');
+    alert('Please enter the correct information!');
+  }
+}
+
+function sign() {
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  if (name == '' || email == '' || password == '') {
+    console.log('Hello world!');
+    alert('Sign-in success!')
+  } else {
+    alert('Please enter the correct information!')
   }
 }
 
