@@ -1,14 +1,15 @@
-const signUpButton = document.getElementById("signUp");
-const signInButton = document.getElementById("signIn");
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
 const container = document.getElementById("container");
 
 function login() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  if (email !== "" && password !== "") {
-    alert("Login berhasil!");
+  if (email === '' || password === '') {
+    console.log("Hello world!");
+    alert('Login berhasil!');
   } else {
-    alert("Harap isi username dan password.");
+    alert('Harap isi username dan password.');
   }
 }
 

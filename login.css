@@ -156,7 +156,7 @@ input {
   height: 100%;
   overflow: hidden;
   transition: transform 0.6s ease-in-out;
-  z-index: 100;
+  z-index: 1;
 }
 
 .container.right-panel-active .overlay-container {
@@ -183,18 +183,19 @@ input {
 }
 
 .overlay-panel {
+  background-color:rgba(0,0,0,0.5);
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 40px;
+  padding: 0px 40px;
   text-align: center;
   top: 0;
   height: 100%;
   width: 50%;
   transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .overlay-left {
