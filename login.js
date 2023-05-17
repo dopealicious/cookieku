@@ -1,11 +1,11 @@
 const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
+const logInButton = document.getElementById('logIn');
 const container = document.getElementById("container");
 
 function login() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  if (email === '' || password === '') {
+  if (email == '' || password == '') {
     console.log("Hello world!");
     alert('Login berhasil!');
   } else {
@@ -17,6 +17,6 @@ signUpButton.addEventListener("click", () => {
   container.classList.add("right-panel-active");
 });
 
-signInButton.addEventListener("click", () => {
+logInButton.addEventListener("click", () => {
   container.classList.remove("right-panel-active");
 });

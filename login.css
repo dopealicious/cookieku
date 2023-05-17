@@ -110,13 +110,13 @@ input {
   transition: all 0.6s ease-in-out;
 }
 
-.sign-in-container {
+.log-in-container {
   left: 0;
   width: 50%;
   z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.container.right-panel-active .log-in-container {
   transform: translateX(100%);
 }
 
