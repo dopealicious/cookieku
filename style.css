@@ -392,12 +392,12 @@ section {
   padding-top: 10px;
 }
 
-.menu .box-container .box .content .stars {
+.stars {
   padding: 1rem 0;
   color: #631f13;
 }
 
-.menu .box-container .box .content .stars i {
+.stars i {
   font-size: 1.7rem;
   color: var(--secondary);
 }
@@ -429,72 +429,69 @@ section {
 }
 
 /* REVIEW */
-.menu-preview {
+/* REVIEW */
+.popup {
   position: fixed;
   top: 0;
   left: 0;
-  min-height: 100vh;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  align-items: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
   justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s;
 }
-.menu-preview .preview {
-  display: none;
-  padding: 0.5rem;
+
+.popup-content {
+  background-color: rgb(246, 234, 234);
+  padding: 20px;
   text-align: center;
-  position: relative;
-  /* margin: 1rem; */
-  width: 40%;
-  background: #fff;
+  color: #fff;
 }
-.menu-preview .preview img {
-  width: 100%;
+
+.popup-content img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+  border-radius: 50%;
 }
-.menu-preview .preview.active {
-  display: inline-block;
+
+.popup-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #c98d83;
 }
-.menu-preview .preview h3 {
-  font-size: 2rem;
+
+.popup-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.close-btn {
+  /* background-color: #fff; */
   color: #333;
-}
-.menu-preview .preview .stars {
-  color: gold;
-  font-size: 1.2rem;
-}
-.menu-preview .preview .stars li {
-  margin: 0 1rem;
-}
-.menu-preview .preview p {
-  font-size: 1.8rem;
-  color: #333;
-}
-.menu-preview .preview a {
-  display: inline-block;
-  width: 10rem;
-  height: 2.6rem;
-  background: gold;
-  color: honeydew;
-  font-size: 1.5rem;
-  border: 0.1rem solid gold;
-  border-radius: 0.5rem;
-}
-.menu-preview .preview a:hover {
-  background: none;
-  color: #333;
-}
-.menu-preview .preview .fa-xmark {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  color: #333;
+  border: none;
+  padding: 10px 20px;
   cursor: pointer;
+  text-align: left;
 }
-.menu-preview .preview .fa-xmark:hover {
-  transform: rotate(180deg);
-  color: gold;
+.price {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: black;
+  margin-right: 0rem;
+  top: 0;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+  .menu-card {
+    width: 100%;
+  }
 }
 
 /* LETTER */
