@@ -470,7 +470,12 @@ section {
   margin-bottom: 20px;
   color: #000000;
 }
-
+.popup .popup-content .stok {
+  font-size: 17px;
+  margin-bottom: 0px;
+  color: #000000;
+  font-weight: bold;
+}
 .close-btn {
   /* background-color: #fff; */
   color: #333;
@@ -479,10 +484,15 @@ section {
   cursor: pointer;
   text-align: left;
 }
-.price {
-  font-size: 2rem;
+.close-btn:hover {
+  font-size: 1.8rem;
+  color: #921c43;
+  transform: rotate(90deg);
+}
+.popup .popup-content .price {
+  font-size: 3.5rem;
   font-weight: bolder;
-  color: black;
+  color: rgb(107, 13, 13);
   margin-right: 0rem;
   top: 0;
 }
