@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Order Cookies</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>Form Order Cookies</h1>
+    <form id="orderForm" onsubmit="submitForm(event)">
+      <div>
+        <label for="name">Nama:</label>
+        <input type="text" id="name" required />
+      </div>
+      <div>
+        <label for="alamat">Alamat:</label>
+        <input type="text" id="alamat" required />
+      </div>
+      <div>
+        <label for="catatan">Catatan:</label>
+        <input type="text" id="catatan" min="1" required />
+      </div>
+      <div>
+        <label for="flavor">Rasa:</label>
+        <select id="flavor" required>
+          <option value="">Pilih Rasa</option>
+          <option value="Cokelat">Cokelat</option>
+          <option value="Vanila">Vanila</option>
+          <option value="Strawberry">Strawberry</option>
+        </select>
+      </div>
+      <div>
+        <label for="deliveryDate">Tanggal Pengambilan:</label>
+        <input type="date" id="deliveryDate" required />
+      </div>
+      <div>
+        <label for="paymentMethod">Metode Pembayaran:</label>
+        <select id="paymentMethod" onchange="togglePaymentFields()" required>
+          <option value="">Pilih Metode Pembayaran</option>
+          <option value="BankTransfer">Transfer Bank</option>
+          <option value="Ewallet">Dompet Elektronik</option>
+        </select>
+      </div>
+      <div id="bankTransferFields" class="paymentFields">
+        <label for="bankName">Nama Bank:</label>
+        <input type="text" id="bankName" />
+        <label for="accountNumber">Nomor Rekening:</label>
+        <input type="text" id="accountNumber" />
+      </div>
+      <div id="ewalletFields" class="paymentFields">
+        <label for="ewalletName">Nama E-wallet:</label>
+        <input type="text" id="ewalletName" />
+        <label for="ewalletId">ID E-wallet:</label>
+        <input type="text" id="ewalletId" />
+      </div>
+      <div class="total">
+        <p>Rincian Pembayaran:</p>
+        <table>
+          <tbody>
+            <tr>
+              <td>Subtotal Produk</td>
+              <td>Rp.150.000</td>
+            </tr>
+            <tr>
+              <td>Biaya Layanan</td>
+              <td>Rp.4.000</td>
+            </tr>
+            <tr>
+              <td>Total Pembayaran</td>
+              <td>Rp.154.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <button type="btn" onchange="openPopup('popup1')">Order</button>
+      </div>
+
+      <div id="popup1" class="popup">
+        <div class="popup-content">
+          <img src="assets/images/logo.png" alt="" />
+          <h2>Struk Pesanan</h2>
+          <div id="orderSummary" class="orderSummary"></div>
+          <button class="close-btn" onclick="closePopup('popup1')">X</button>
+        </div>
+      </div>
+    </form>
+    <script src="index.js"></script>
+  </body>
+</html>
