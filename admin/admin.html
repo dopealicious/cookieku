@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Admin Dashboard</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#customer">Customer</a></li>
+        <li><a href="#order">Order</a></li>
+        <li><a href="#stock">Stock</a></li>
+        <li><a href="#review">Review</a></li>
+      </ul>
+    </nav>
+
+    <section id="customer">
+      <h2>Customer Management</h2>
+      <div class="data-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>John Doe</td>
+              <td>johndoe@example.com</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jane Smith</td>
+              <td>janesmith@example.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="order">
+      <h2>Order Management</h2>
+      <div class="data-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer</th>
+              <th>Product</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>John Doe</td>
+              <td>Cake</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jane Smith</td>
+              <td>Cupcake</td>
+              <td>3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="stock">
+      <h2>Stock Management</h2>
+      <div class="data-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Product</th>
+              <th>Stock Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Cake</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Cupcake</td>
+              <td>15</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="review">
+      <h2>Review Management</h2>
+      <div class="data-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer</th>
+              <th>Product</th>
+              <th>Rating</th>
+              <th>Review</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>John Doe</td>
+              <td>Cake</td>
+              <td>4.5</td>
+              <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jane Smith</td>
+              <td>Cupcake</td>
+              <td>5</td>
+              <td>Nulla facilisi. Sed vitae mi vel nunc commodo ultricies.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

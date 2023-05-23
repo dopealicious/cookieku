@@ -16,15 +16,65 @@ document.querySelector("#close-form").onclick = () => {
   cart.classList.remove("active");
 };
 
-var swiper = new Swiper(".blogs", {
-  grabCursor: true,
+var swiper = new Swiper(".blogs-row", {
+  spaceBetween: 30,
   loop: true,
-  cnteredSlides: true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 9500,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextE1: ".swiper-button-next",
+    prevE1: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 1,
+    },
+    1024: {
+      slidesPerView: 1,
+    },
   },
 });
+// RIVIEW CUSTOMER
+function swiper() {
+  var swiper = new Swiper(".review-row", {
+    spaceBetween: 30,
+    loop: true,
+    centeredSlides: true,
+    autoplay: {
+      delay: 9500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+  });
+}
+
+// Tambahkan event listener ke elemen dengan id "review"
+document.getElementById("review").addEventListener("click", swiper);
+
 
 // Fungsi untuk membuka popup
 function openPopup(popupId) {
@@ -115,4 +165,15 @@ function submitForm(event) {
   alert(message);
   // Reset form
   document.getElementById("orderForm").reset();
+}
+
+// STRUK
+function openPopupp() {
+  var popup = document.getElementById("popup");
+  popup.style.display = "block";
+}
+
+function closePopupp() {
+  var popup = document.getElementById("popup");
+  popup.style.display = "none";
 }
