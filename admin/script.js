@@ -19,3 +19,4 @@ navLinks.forEach(function (link) {
     targetSection.style.display = "block";
   });
 });
+
