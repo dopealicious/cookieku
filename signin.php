@@ -30,7 +30,7 @@ if ($conn->connect_error) {
 }
 
 $sql = "INSERT INTO account (email, password) 
-VALUES ('1@1, 'a')";
+VALUES ('novi@mail.com, '123')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
