@@ -95,30 +95,50 @@ html::-webkit-scrollbar-thumb {
   color: var(--primary-color);
 }
 
-/* .header .search {
-  display: none;
-  top: 100%;
-  margin: 1.5rem 7%;
-  background-color: transparent;
-  width: 50%;
-  right: 0;
-  height: 5rem;
-  position: absolute;
-}
-.header .search input {
-  width: 100%;
-  height: 100%;
-  font-size: 1.5rem;
-  background-color: white;
-  color: black;
-  margin-right: 7%;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  box-shadow: var(--box-shadow);
-}
-.header .search.active {
+/* PROFILE */
+.profile-icon {
+  padding-right: 3rem;
+  position: relative;
   display: inline-block;
-} */
+  cursor: pointer;
+}
+.profile-icon img {
+  width: 6rem;
+  margin-right: 1.3rem;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: hsla(53, 22%, 93%, 0.882);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: left;
+  z-index: 1;
+}
+
+.profile-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-dropdown ul li {
+  margin-bottom: 5px;
+}
+
+.profile-dropdown ul li a {
+  font-size: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.hidden {
+  display: none;
+}
+
 #menu-bar {
   display: none;
 }

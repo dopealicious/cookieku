@@ -16,6 +16,28 @@ document.querySelector("#close-form").onclick = () => {
   cart.classList.remove("active");
 };
 
+const profileIcon = document.getElementById("profile-icon");
+const profileDropdown = document.getElementById("profile-dropdown");
+const logoutButton = document.getElementById("logout-btn");
+
+profileIcon.addEventListener("click", function () {
+  profileDropdown.classList.toggle("hidden");
+});
+
+logoutButton.addEventListener("click", function () {
+  // Lakukan aksi logout di sini
+
+  // Redirect ke halaman login atau halaman lain setelah logout
+  window.location.href = "login.html";
+});
+
+logoutButton.addEventListener("click", function () {
+  // Lakukan aksi logout di sini
+
+  // Redirect ke halaman login atau halaman lain setelah logout
+  window.location.href = "login.html";
+});
+
 var swiper = new Swiper(".blogs-row", {
   spaceBetween: 30,
   loop: true,
