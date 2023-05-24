@@ -432,7 +432,7 @@ section {
 /* REVIEW */
 .popup {
   position: fixed;
-  top: 4rem;
+  top: 2rem;
   left: 0;
   width: 100%;
   height: 100%;
@@ -818,7 +818,12 @@ th {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
-
+.popupp-content img {
+  width: 6rem;
+  height: 6rem;
+  /* width: 100px;
+  height: 80px; */
+}
 .popupp-content {
   background-color: #fff;
   max-width: 400px;
