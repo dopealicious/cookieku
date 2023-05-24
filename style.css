@@ -432,7 +432,7 @@ section {
 /* REVIEW */
 .popup {
   position: fixed;
-  top: 0;
+  top: 4rem;
   left: 0;
   width: 100%;
   height: 100%;
@@ -466,7 +466,8 @@ section {
 }
 
 .popup-content p {
-  font-size: 16px;
+  text-align: center;
+  font-size: 14px;
   margin-bottom: 20px;
   color: #000000;
 }
@@ -490,7 +491,7 @@ section {
   transform: rotate(90deg);
 }
 .popup .popup-content .price {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   font-weight: bolder;
   color: rgb(107, 13, 13);
   margin-right: 0rem;
