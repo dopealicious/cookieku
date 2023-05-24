@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css"> -->
     <script src="https://kit.fontawesome.com/3477ae541c.js" crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
@@ -35,10 +32,10 @@
       </nav>
 
       <div class="profile-icon" id="profile-icon">
-        <img src="assets/images/profile.png" alt="Profile Icon">
+        <img src="assets/images/profile.png" alt="Profile Icon" />
         <div class="profile-dropdown hidden" id="profile-dropdown">
           <ul>
-            <li><a href="#">Profil</a></li>
+            <li><a id="profile-btn">Profil</a></li>
             <li><a href="#">Status</a></li>
             <li><a href="#" id="logout-btn">Logout</a></li>
           </ul>
@@ -65,6 +62,7 @@
       </div>
     </section>
 
+    <!-- BLOGS -->
     <section class="blogs" id="about">
       <div class="swiper blogs-row">
         <div class="swiper-wrapper">
@@ -114,6 +112,51 @@
       </div>
     </section>
 
+    <!-- PROFILE -->
+    <div class="profile-popup hidden" id="profile-popup">
+      <div class="profile-card">
+        <div class="profile-header">
+          <img src="assets/images/profile.png" alt="Profile Picture" />
+          <h2 class="profile-name" id="profileName">John Doe</h2>
+        </div>
+        <div class="profile-details">
+          <p>
+            <strong>Alamat:<br /></strong>
+            <span id="profileAddress">Jl. Contoh Alamat, Kota, Negara</span>
+          </p>
+          <p>
+            <strong>No. Telepon:<br /></strong>
+            <span id="profilePhone">08123456789</span>
+          </p>
+          <input
+            type="text"
+            id="editPhone"
+            class="edit-input"
+            value="08123456789"
+            required
+          />
+          <input
+            type="text"
+            id="editName"
+            class="edit-input"
+            value="John Doe"
+            required
+          />
+          <input
+            type="text"
+            id="editAddress"
+            class="edit-input"
+            value="Jl. Contoh Alamat, Kota, Negara"
+            required
+          />
+        </div>
+        <div class="profile-actions">
+          <button class="save-btn">Simpan</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART ITEM -->
     <div class="cart-items-container">
       <div id="close-form" class="fas fa-times"></div>
       <h3 class="title">checkout</h3>
@@ -146,6 +189,7 @@
       <a href="ordering.html" class="btn"> checkout </a>
   </div>
 
+  <!-- MENU -->
     <section class="menu" id="menu">
       <h1 class="heading">our <span> products</span></h1>
       <div class="box-container">
