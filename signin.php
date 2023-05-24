@@ -1,16 +1,17 @@
 <?php
-if (isset($_GET['Input'])) {
-$email = $_GET['email'];
-$password = $_GET['password'];
-echo "<b>Akun Login:</b> <br>";
-echo $email. "<br>";
-echo $password. "<br>";
-}
 
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "cookieku";
+
+$user= $_POST['user'];
+$pass = $_POST['pass'];
+$email = $_POST['email'];
+echo "<b> Akun Login:</b> <br>";
+echo $user. "<br>";
+echo $email. "<br>";
+echo $password. "<br>";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -22,15 +23,8 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "INSERT INTO account (email, password) 
-VALUES ('novi@mail.com, 'novi')";
+// Insert the data into the database
+$sql = "INSERT INTO customer_acc (id, user, pass, email) VALUES ('$user', '$pass', '$email')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -40,5 +34,3 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
-
-
