@@ -1,18 +1,18 @@
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
-const container = document.getElementById("container");
+const container = document.getElementById('container');
 const logInButton = document.getElementById("login");
 
 let userEmail = '';
 let userPassword = '';
 
-var email = document.getElementById("email-logIn");
+var email = document.getElementById('email-logIn');
 email.addEventListener("input", (e) => {
   userEmail = e.target.value;
 })
 
-var password = document.getElementById("password-logIn");
-password.addEventListener("input", (e) => {
+var password = document.getElementById('password-logIn');
+password.addEventListener('input', (e) => {
   userPassword = e.target.value;
 })
 
@@ -25,7 +25,9 @@ function login() {
     alert('input password!');
   } else {
     // compare database with user credential logic is here
-    alert('login success!')
+    alert('login success!');
+    window.location.href = 'index.php';
+    exit;
   }
 }
 
