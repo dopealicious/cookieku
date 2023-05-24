@@ -1,18 +1,17 @@
 <?php
-if (isset($_GET['Input'])) {
-  $user = $_GET['user'];
-  $email = $_GET['email'];
-  $pass = $_GET['password'];
-  echo "<b> Akun Login:</b> <br>";
-  echo $user. "<br>";
-  echo $email. "<br>";
-  echo $password. "<br>";
-}
 
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "cookieku";
+
+$user= $_POST['user'];
+$pass = $_POST['pass'];
+$email = $_POST['email'];
+echo "<b> Akun Login:</b> <br>";
+echo $user. "<br>";
+echo $email. "<br>";
+echo $password. "<br>";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
