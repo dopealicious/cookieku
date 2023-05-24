@@ -75,7 +75,6 @@ function swiper() {
 // Tambahkan event listener ke elemen dengan id "review"
 document.getElementById("review").addEventListener("click", swiper);
 
-
 // Fungsi untuk membuka popup
 function openPopup(popupId) {
   var popup = document.getElementById(popupId);
@@ -169,11 +168,11 @@ function submitForm(event) {
 
 // STRUK
 function openPopupp() {
-  var popup = document.getElementById("popup");
+  var popup = document.getElementById("popupp");
   popup.style.display = "block";
 }
 
 function closePopupp() {
-  var popup = document.getElementById("popup");
+  var popup = document.getElementById("popupp");
   popup.style.display = "none";
 }
