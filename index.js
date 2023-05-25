@@ -4,12 +4,6 @@ function addToCart() {
   window.location.href = "login.html";
 }
 
-var cartBtn = document.getElementById("cart-btn");
-cartBtn.addEventListener("click", function () {
-  alert("Silahkan Login Terlebih Dahulu!");
-  window.location.href = "login.html";
-});
-
 // HEADER
 let navbar = document.querySelector(".header .navbar");
 let menu = document.querySelector("#menu-btn");
@@ -34,23 +28,50 @@ const profileIcon = document.getElementById("profile-icon");
 const profileDropdown = document.getElementById("profile-dropdown");
 const profilePopup = document.getElementById("profile-popup");
 const profileBtn = document.getElementById("profile-btn");
-const closeBtn = document.createElement("span");
-
-closeBtn.innerHTML = "&times;";
-closeBtn.classList.add("close-btn");
-profilePopup.appendChild(closeBtn);
+const statusBtn = document.getElementById("status-btn");
+const profileCloseButton = document.getElementById("profile-close-button");
+const statusPopup = document.getElementById("status-popup");
+const closeBtn = document.getElementById("status-close-button");
 
 profileIcon.addEventListener("click", function () {
   profileDropdown.classList.toggle("hidden");
 });
 
+function closeStatusPopup() {
+  setTimeout(function () {
+    document.body.classList.remove("transparent-bg");
+  }, 200);
+  statusPopup.classList.add("hidden");
+}
+
+closeBtn.addEventListener("click", closeStatusPopup);
+
+function closeProfilePopup() {
+  profilePopup.classList.add("hidden");
+  setTimeout(function () {
+    document.body.classList.remove("transparent-bg");
+  }, 200);
+}
+
+profileCloseButton.addEventListener("click", closeProfilePopup);
+
 profileBtn.addEventListener("click", function () {
   profilePopup.classList.remove("hidden");
+  statusPopup.classList.add("hidden"); // Menutup popup status jika sedang terbuka
+  document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
 });
 
-closeBtn.addEventListener("click", function () {
-  profilePopup.classList.add("hidden");
+statusBtn.addEventListener("click", function () {
+  statusPopup.classList.remove("hidden");
+  document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+  profilePopup.classList.add("hidden"); // Menutup popup profil jika sedang terbuka
 });
+
+const logoutButton = document.getElementById("logout-btn");
+function handleLogout() {
+  window.location.href = "login.html";
+}
+logoutButton.addEventListener("click", handleLogout);
 
 document.querySelector(".save-btn").addEventListener("click", function () {
   var nameInput = document.getElementById("editName");
@@ -100,42 +121,31 @@ document.getElementById("profilePhone").addEventListener("click", function () {
   profilePhone.style.display = "none";
 });
 
-// LOGOUT
 logoutButton.addEventListener("click", function () {
-  // Lakukan aksi logout di sini
-
-  // Redirect ke halaman login atau halaman lain setelah logout
   window.location.href = "login.html";
 });
 
-var swiper = new Swiper(".blogs-row", {
-  spaceBetween: 30,
-  loop: true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextE1: ".swiper-button-next",
-    prevE1: ".swiper-button-prev",
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 1,
-    },
-    1024: {
-      slidesPerView: 1,
-    },
-  },
-});
+function openStatusPopup() {
+  var statusPopup = document.getElementById("status-popup");
+  statusPopup.classList.remove("hidden");
+  statusPopup.classList.add("visible");
+}
+
+function handleStatusChange() {
+  var statusSelect = document.getElementById("status");
+  var reviewForm = document.getElementById("review-form");
+
+  if (statusSelect.value === "telah-diterima") {
+    reviewForm.classList.remove("hidden");
+  } else {
+    reviewForm.classList.add("hidden");
+  }
+}
+
+function submitReview() {
+  var reviewText = document.getElementById("review-text").value;
+  alert("Review telah dikirim: " + reviewText);
+}
 
 // Tambahkan event listener ke elemen dengan id "review"
 document.getElementById("review").addEventListener("click", swiper);
@@ -182,11 +192,6 @@ function submitForm(event) {
   var flavor = document.getElementById("flavor").value;
   var deliveryDate = document.getElementById("deliveryDate").value;
   var paymentMethod = document.getElementById("paymentMethod").value;
-
-  // Mengirimkan data ke server atau melakukan tindakan lainnya
-  // Contoh: Memproses pesanan dan pembayaran
-
-  // Menampilkan pesan konfirmasi
   var message = "Terima kasih, " + name + "! Pesanan Anda telah diterima.";
 
   if (paymentMethod === "BankTransfer") {
@@ -194,7 +199,6 @@ function submitForm(event) {
     var accountNumber = document.getElementById("accountNumber").value;
 
     // Proses pembayaran dengan transfer bank
-
     message +=
       "\nMetode Pembayaran: Transfer Bank\nBank: " +
       bankName +
@@ -205,7 +209,6 @@ function submitForm(event) {
     var ewalletId = document.getElementById("ewalletId").value;
 
     // Proses pembayaran dengan dompet elektronik
-
     message +=
       "\nMetode Pembayaran: Dompet Elektronik\nE-wallet: " +
       ewalletName +
