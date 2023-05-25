@@ -1,3 +1,15 @@
+// LOGIN JIKA TEKAN ADD TO CART
+function addToCart() {
+  alert("Silahkan Login Terlebih Dahulu!");
+  window.location.href = "login.html";
+}
+
+var cartBtn = document.getElementById("cart-btn");
+cartBtn.addEventListener("click", function () {
+  alert("Silahkan Login Terlebih Dahulu!");
+  window.location.href = "login.html";
+});
+
 // HEADER
 let navbar = document.querySelector(".header .navbar");
 let menu = document.querySelector("#menu-btn");

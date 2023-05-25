@@ -31,6 +31,17 @@
         <a href="login.html" > Login</a>
       </nav>
 
+      <div class="profile-icon" id="profile-icon">
+        <img src="assets/images/profile.png" alt="Profile Icon" />
+        <div class="profile-dropdown hidden" id="profile-dropdown">
+          <ul>
+            <li><a id="profile-btn">Profil</a></li>
+            <li><a href="#">Status</a></li>
+            <li><a href="#" id="logout-btn">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="icons">
         <div id="cart-btn" class="fas fa-shopping-cart"></div>
         <div id="menu-btn" class="fas fa-bars"></div>
@@ -100,6 +111,50 @@
         <div class="swiper-button-prev"></div>
       </div>
     </section>
+
+    <!-- PROFILE -->
+    <div class="profile-popup hidden" id="profile-popup">
+      <div class="profile-card">
+        <div class="profile-header">
+          <img src="assets/images/profile.png" alt="Profile Picture" />
+          <h2 class="profile-name" id="profileName">John Doe</h2>
+        </div>
+        <div class="profile-details">
+          <p>
+            <strong>Alamat:<br /></strong>
+            <span id="profileAddress">Jl. Contoh Alamat, Kota, Negara</span>
+          </p>
+          <p>
+            <strong>No. Telepon:<br /></strong>
+            <span id="profilePhone">08123456789</span>
+          </p>
+          <input
+            type="text"
+            id="editPhone"
+            class="edit-input"
+            value="08123456789"
+            required
+          />
+          <input
+            type="text"
+            id="editName"
+            class="edit-input"
+            value="John Doe"
+            required
+          />
+          <input
+            type="text"
+            id="editAddress"
+            class="edit-input"
+            value="Jl. Contoh Alamat, Kota, Negara"
+            required
+          />
+        </div>
+        <div class="profile-actions">
+          <button class="save-btn">Simpan</button>
+        </div>
+      </div>
+    </div>
 
     <!-- CART ITEM -->
     <div class="cart-items-container">
@@ -320,7 +375,7 @@
           vitamin C, dan antioksidan.</p>
         <p>Stok   : 12</p>
         <p class="price">$11.99</p>
-        <button class="btn" onclick="addToCart()" >Add To Cart</button>
+        <button class="btn">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup1')">X</button>
       </div>
     </div>
@@ -342,7 +397,7 @@
           yang baik untuk kesehatan tulang dan pertumbuhan.</p>
         <p>Stok   : 12</p>
         <p class="price">$11.99</p>
-        <button class="btn" onclick="addToCart()">Add To Cart</button>
+        <button class="btn">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup2')">X</button>
       </div>
     </div>
@@ -364,7 +419,7 @@
           yang penting untuk kesehatan dan energi.</p>
         <p>Stok   : 12</p>
         <p class="price">$11.99</p>
-        <button class="btn" onclick="addToCart()">Add To Cart</button>
+        <button class="btn">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup3')">X</button>
       </div>
     </div>
@@ -386,7 +441,7 @@
           mengisi kebutuhan camilan.</p>
         <p>Stok   : 12</p>
         <p class="price">$11.99</p>
-        <button class="btn" onclick="addToCart()">Add To Cart</button>
+        <button class="btn">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup4')">X</button>
       </div>
     </div>
@@ -408,7 +463,7 @@
           dan lemak sehat yang memberikan energi dan nutrisi.</p>
         <p>Stok   : 12</p>
         <p class="price">$11.99</p>
-        <button class="btn" onclick="addToCart()">Add To Cart</button>
+        <button class="btn">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup5')">X</button>
       </div>
     </div>
@@ -430,7 +485,7 @@
           dan lemak sehat.</p>
         <p>Stok   : 12</p>
         <p class="price">$11.99</p>
-        <button class="btn" onclick="addToCart()">Add To Cart</button>
+        <button class="btn">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup6')">X</button>
       </div>
     </div>
@@ -452,7 +507,7 @@
           penting untuk energi dan kesehatan tulang.</p>
         <p>Stok   : 12</p>
         <p class="price">$11.99</p>
-        <button class="btn" onclick="addToCart()">Add To Cart</button>
+        <button class="btn">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup7')">X</button>
       </div>
     </div>
@@ -474,7 +529,7 @@
           antioksidan dari buah strawberry yang menyehatkan.</p>
         <p>Stok   : 12</p>
         <p class="price">$11.99</p>
-        <button class="btn" onclick="addToCart()">Add To Cart</button>
+        <button class="btn">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup8')">X</button>
       </div>
     </div>
@@ -497,7 +552,7 @@
           tambahan nutrisi.</p>
         <p class="stok">Stok   : 12</p>
         <p class="price">$11.99</p>
-        <button class="btn" onclick="addToCart()">Add To Cart</button>
+        <button class="btn">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup9')">X</button>
       </div>
     </div>
