@@ -10,18 +10,40 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="login.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Alex Brush"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Alegreya Sans SC"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container" id="container">
       <div class="form-container sign-up-container">
         <form action="index.html" method="post" onsubmit="return validated()">
           <h1>Create Account</h1>
-          <div class="social-container">
-          </div>
-          <input type="text" placeholder="Username" name="Username" id ="user-signUp" />
-          <input type="email" placeholder="Email" name="Email" id ="email-signUp"/>
-          <input type="password" placeholder ="Password" name="Password" id="pass-signUp" />
-          <input type="submit" value="Submit">
+          <div class="social-container"></div>
+          <input
+            type="text"
+            placeholder="Username"
+            name="Username"
+            id="user-signUp"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            name="Email"
+            id="email-signUp"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="Password"
+            id="pass-signUp"
+          />
+          <input type="submit" value="Submit" />
           <!-- <button onclick="sign()">Sign Up</button> -->
         </form>
       </div>
@@ -31,7 +53,7 @@
           <input id="email-logIn" type="email" placeholder="Email" />
           <input id="password-logIn" type="password" placeholder="Password" />
           <a href="#">Forgot your password?</a>
-          <button id="login" >
+          <button id="login">
             <a>Log In</a>
           </button>
         </form>
@@ -40,9 +62,7 @@
         <div class="overlay">
           <div class="overlay-panel overlay-left">
             <h1>Already have an account?</h1>
-            <p>
-              Try to log-in by pressing button below!
-            </p>
+            <p>Try to log-in by pressing button below!</p>
             <button class="ghost" id="signIn">Sign In</button>
           </div>
           <div class="overlay-panel overlay-right">

@@ -191,6 +191,7 @@ function submitForm(event) {
   var catatan = document.getElementById("catatan").value;
   var flavor = document.getElementById("flavor").value;
   var deliveryDate = document.getElementById("deliveryDate").value;
+  // var ProofOfPayment = document.getElementById("ProofOfPayment").value;
   var paymentMethod = document.getElementById("paymentMethod").value;
   var message = "Terima kasih, " + name + "! Pesanan Anda telah diterima.";
 
@@ -216,6 +217,23 @@ function submitForm(event) {
       ewalletId;
   }
 
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        document.getElementById("preview").src = e.target.result;
+        document.getElementById("preview").style.display = "block";
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  // Panggil fungsi readURL saat memilih file
+  document
+    .getElementById("ProofOfPayment")
+    .addEventListener("change", function () {
+      readURL(this);
+    });
   // STRUK
   var orderSummary = document.getElementById("orderSummary");
   orderSummary.innerHTML = `
