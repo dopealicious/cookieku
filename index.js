@@ -118,6 +118,16 @@ document.getElementById("profilePhone").addEventListener("click", function () {
   profilePhone.style.display = "none";
 });
 
+// FORM ORDER
+// Ambil nilai dari profil detail
+const profileNameElement = document.getElementById("orderProfileName");
+const profileAddressElement = document.getElementById("orderProfileAddress");
+const profilePhoneElement = document.getElementById("orderProfilePhone");
+
+// Mengisi nilai dari profil ke dalam elemen HTML
+profileNameElement.textContent = profileName;
+profileAddressElement.textContent = profileAddress;
+profilePhoneElement.textContent = profilePhone;
 logoutButton.addEventListener("click", function () {
   window.location.href = "login.html";
 });
@@ -231,6 +241,51 @@ function submitForm(event) {
     .addEventListener("change", function () {
       readURL(this);
     });
+  // Ambil elemen tabel rincian pembayaran
+  const paymentDetailsTable = document.getElementById("paymentDetailsTable");
+
+  // Generate isi tabel rincian pembayaran
+  const generatePaymentDetails = () => {
+    // Kosongkan isi tabel sebelumnya
+    paymentDetailsTable.innerHTML = "";
+
+    // Buat baris untuk subtotal produk
+    const subtotalRow = document.createElement("tr");
+    const subtotalLabel = document.createElement("td");
+    subtotalLabel.textContent = "Subtotal Produk";
+    const subtotalValue = document.createElement("td");
+    subtotalValue.textContent = `Rp. ${totalPrice}`;
+    subtotalRow.appendChild(subtotalLabel);
+    subtotalRow.appendChild(subtotalValue);
+
+    // Buat baris untuk biaya layanan
+    const serviceFeeRow = document.createElement("tr");
+    const serviceFeeLabel = document.createElement("td");
+    serviceFeeLabel.textContent = "Biaya Layanan";
+    const serviceFeeValue = document.createElement("td");
+    serviceFeeValue.textContent = "Rp. 4.000";
+    serviceFeeRow.appendChild(serviceFeeLabel);
+    serviceFeeRow.appendChild(serviceFeeValue);
+
+    // Buat baris untuk total pembayaran
+    const totalPaymentRow = document.createElement("tr");
+    const totalPaymentLabel = document.createElement("td");
+    totalPaymentLabel.textContent = "Total Pembayaran";
+    const totalPaymentValue = document.createElement("td");
+    const totalPaymentAmount = totalPrice + 4000; // Total pembayaran
+    totalPaymentValue.textContent = `Rp. ${totalPaymentAmount}`;
+    totalPaymentRow.appendChild(totalPaymentLabel);
+    totalPaymentRow.appendChild(totalPaymentValue);
+
+    // Tambahkan baris-baris ke tabel
+    paymentDetailsTable.appendChild(subtotalRow);
+    paymentDetailsTable.appendChild(serviceFeeRow);
+    paymentDetailsTable.appendChild(totalPaymentRow);
+  };
+
+  // Panggil fungsi untuk menghasilkan isi tabel rincian pembayaran
+  generatePaymentDetails();
+
   // STRUK
   var orderSummary = document.getElementById("orderSummary");
   orderSummary.innerHTML = `
@@ -358,50 +413,17 @@ addToCart("Product 7", "product7.jpg", 22.0);
 addToCart("Product 8", "product8.jpg", 14.0);
 addToCart("Product 9", "product9.jpg", 23.0);
 
-// Function to remove a product from the cart
-function removeFromCart(event) {
-  const removeButton = event.target;
-  const cartItem = removeButton.parentElement;
-  const cartContainer = document.getElementById("cart-items");
-  const priceElement = cartItem.querySelector(".price");
-  const price = parseFloat(priceElement.textContent.replace(/[^\d.]/g, ""));
-  cartContainer.removeChild(cartItem);
+// ...
 
-  // Deduct the price from the total
-  updateTotalPrice(-price);
-}
-
-// Fungsi untuk memperbarui total harga
-function updateTotalPrice(price) {
-  const totalPriceElement = document.getElementById("total-price");
-  const currentTotal = parseFloat(
-    totalPriceElement.textContent.replace(/[^\d.]/g, "")
-  );
-  const newTotal = currentTotal + price;
-  totalPriceElement.textContent = formatPrice(newTotal);
-}
-
-// Fungsi untuk memformat harga menjadi format yang diinginkan (misalnya: 100,000)
-function formatPrice(price) {
-  return price.toLocaleString("en-US", { style: "currency", currency: "USD" });
-}
-
-// Contoh penggunaan fungsi addToCart
-addToCart("Product 1", "product1.jpg", 19.99);
-addToCart("Product 2", "product2.jpg", 24.99);
-
-// Fungsi untuk menghapus produk dari cart
-function removeFromCart(event) {
-  const removeButton = event.target;
-  const cartItem = removeButton.parentElement;
-  const cartContainer = document.getElementById("cart-items");
-  const priceElement = cartItem.querySelector(".price");
-  const price = parseFloat(priceElement.textContent.replace(/[^\d.]/g, ""));
-  cartContainer.removeChild(cartItem);
-
-  // Kurangi total harga
-  updateTotalPrice(-price);
-}
+// // Fungsi untuk memperbarui total harga di bagian Submit Order
+// function updateSubmitOrderTotalPrice(price) {
+//   const totalPriceElement = document.getElementById("total-price-submit");
+//   const currentTotal = parseFloat(
+//     totalPriceElement.textContent.replace(/[^\d.]/g, "")
+//   );
+//   const newTotal = currentTotal + price;
+//   totalPriceElement.textContent = formatPrice(newTotal);
+// }
 
 // Fungsi untuk menampilkan pemberitahuan
 function showNotification(message) {

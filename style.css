@@ -504,7 +504,6 @@ section {
   color: #ff6347;
 }
 
-
 /* ABOUT */
 .blogs {
   background: url(assets/images/backGround.png) no-repeat;
@@ -995,18 +994,50 @@ table {
   border-collapse: collapse;
   width: 110%;
 }
-
-th,
-td,
-p {
-  font-size: 16px;
-  border: 1px solid #ffffff;
+.orderProfile span {
+  font-size: 18px;
   padding: 8px;
-  text-align: left;
+  font-family: "Alegreya Sans SC";
+  color: #ffffff;
+  width: 100%;
+  height: 800px;
+}
+.orderProfile strong {
+  margin-left: 55.5rem;
+  font-size: 18px;
+  padding: 8px;
+  font-family: "Alegreya Sans SC";
+  color: #ffffff;
+  width: 100%;
+  height: 800px;
+}
+.total {
+  /* background-color: #f2f2f2; */
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
-th {
-  background-color: #f2f2f2;
+.total h3, tr, td {
+  /* margin-bottom: 10px; */
+  font-size: 16px;
+}
+
+#submitOrder {
+  width: 100%;
+}
+
+#submitOrder td {
+  padding: 8px 0;
+}
+
+#submitOrder td:first-child {
+  font-weight: bold;
+  width: 150px;
+}
+
+#submitOrder td:last-child {
+  text-align: right;
 }
 
 .orderSummary {

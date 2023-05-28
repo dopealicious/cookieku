@@ -15,6 +15,13 @@
   <body>
     <div class="order">
       <h1><span>Form Order Cookies</span></h1>
+      <div id="orderProfile" class="orderProfile">
+        <p><strong>Nama:</strong> <span id="orderProfileName"></span></p>
+        <p><strong>Alamat:</strong> <span id="orderProfileAddress"></span></p>
+        <p>
+          <strong>No. Telepon:</strong> <span id="orderProfilePhone"></span>
+        </p>
+      </div>
       <form id="orderForm" onsubmit="submitForm(event)">
         <div>
           <label for="catatan">Catatan:</label>
@@ -62,25 +69,27 @@
           <small>Accepted formats: JPG, JPEG, PNG</small>
           <img id="preview" src="#" alt="Preview" style="display: none" />
         </div>
-        <div class="total">
-          <p>Rincian Pembayaran:</p>
-          <table>
+        <div class="total" id="total">
+          <h3>Rincian Pembayaran:</h3>
+          <table id="submitOrder">
             <tbody>
+              <!-- Isi tabel akan di-generate menggunakan JavaScript -->
               <tr>
                 <td>Subtotal Produk</td>
-                <td>Rp.150.000</td>
+                <td id="subtotal-price"></td>
               </tr>
               <tr>
                 <td>Biaya Layanan</td>
-                <td>Rp.4.000</td>
+                <td>Rp. 4.000</td>
               </tr>
               <tr>
                 <td>Total Pembayaran</td>
-                <td>Rp.154.000</td>
+                <td id="total-price-submit"></td>
               </tr>
             </tbody>
           </table>
         </div>
+
         <div>
           <button class="btn" type="submit" onclick="openPopupp()">
             Order
