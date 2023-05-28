@@ -38,9 +38,7 @@ profileIcon.addEventListener("click", function () {
 });
 
 function closeStatusPopup() {
-  setTimeout(function () {
-    document.body.classList.remove("transparent-bg");
-  }, 200);
+  statusPopup.classList.remove("transparent-bg");
   statusPopup.classList.add("hidden");
 }
 
@@ -58,13 +56,12 @@ profileCloseButton.addEventListener("click", closeProfilePopup);
 profileBtn.addEventListener("click", function () {
   profilePopup.classList.remove("hidden");
   statusPopup.classList.add("hidden"); // Menutup popup status jika sedang terbuka
-  document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+  statusPopup.classList.remove("transparent-bg");
 });
 
 statusBtn.addEventListener("click", function () {
-  statusPopup.classList.remove("hidden");
-  document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-  profilePopup.classList.add("hidden"); // Menutup popup profil jika sedang terbuka
+  statusPopup.classList.add("transparent-bg");
+  statusPopup.classList.remove("hidden"); // Menutup popup profil jika sedang terbuka
 });
 
 const logoutButton = document.getElementById("logout-btn");
