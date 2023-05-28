@@ -261,3 +261,178 @@ function closePopupp() {
   var popup = document.getElementById("popupp");
   popup.style.display = "none";
 }
+
+// Data produk
+const products = [
+  {
+    name: "bakery item 1",
+    price: "$45.99/-",
+    image: "assets/images/menu1.jpg",
+  },
+  {
+    name: "bakery item 2",
+    price: "$15.99/-",
+    image: "assets/images/menu2.jpg",
+  },
+  {
+    name: "bakery item 3",
+    price: "$29.99/-",
+    image: "assets/images/menu3.jpg",
+  },
+];
+
+// CART
+function addToCart(productName, productImage, price) {
+  const cartItem = document.createElement("div");
+  cartItem.classList.add("cart-item");
+
+  const removeButton = document.createElement("span");
+  removeButton.classList.add("fas", "fa-times");
+  removeButton.addEventListener("click", removeFromCart);
+  cartItem.appendChild(removeButton);
+
+  const image = document.createElement("img");
+  image.src = productImage;
+  image.alt = productName;
+  cartItem.appendChild(image);
+
+  const content = document.createElement("div");
+  content.classList.add("content");
+
+  const name = document.createElement("h3");
+  name.textContent = productName;
+  content.appendChild(name);
+
+  const productPrice = document.createElement("div");
+  productPrice.classList.add("price");
+  productPrice.textContent = price;
+  content.appendChild(productPrice);
+
+  cartItem.appendChild(content);
+
+  const cartContainer = document.getElementById("cart-items");
+  cartContainer.appendChild(cartItem);
+
+  // Update total price
+  updateTotalPrice(parseFloat(price));
+
+  showNotification("Product added to cart");
+}
+
+// Function to remove a product from the cart
+function removeFromCart(event) {
+  const removeButton = event.target;
+  const cartItem = removeButton.parentElement;
+  const cartContainer = document.getElementById("cart-items");
+  const priceElement = cartItem.querySelector(".price");
+  const price = parseFloat(priceElement.textContent.replace(/[^\d.]/g, ""));
+  cartContainer.removeChild(cartItem);
+
+  // Deduct the price from the total
+  updateTotalPrice(-price);
+}
+
+// Fungsi untuk memperbarui total harga
+function updateTotalPrice(price) {
+  const totalPriceElement = document.getElementById("total-price");
+  const currentTotal = parseFloat(
+    totalPriceElement.textContent.replace(/[^\d.]/g, "")
+  );
+  const newTotal = currentTotal + price;
+  totalPriceElement.textContent = formatPrice(newTotal);
+}
+
+// Fungsi untuk memformat harga menjadi format yang diinginkan (misalnya: 100,000)
+function formatPrice(price) {
+  return price.toLocaleString("en-US", { style: "currency", currency: "USD" });
+}
+
+// Contoh penggunaan fungsi addToCart
+addToCart("Product 1", "product1.jpg", 23.0);
+addToCart("Product 2", "product2.jpg", 21.0);
+addToCart("Product 3", "product3.jpg", 16.0);
+addToCart("Product 4", "product4.jpg", 8.0);
+addToCart("Product 5", "product5.jpg", 18.0);
+addToCart("Product 6", "product6.jpg", 26.0);
+addToCart("Product 7", "product7.jpg", 22.0);
+addToCart("Product 8", "product8.jpg", 14.0);
+addToCart("Product 9", "product9.jpg", 23.0);
+
+// Function to remove a product from the cart
+function removeFromCart(event) {
+  const removeButton = event.target;
+  const cartItem = removeButton.parentElement;
+  const cartContainer = document.getElementById("cart-items");
+  const priceElement = cartItem.querySelector(".price");
+  const price = parseFloat(priceElement.textContent.replace(/[^\d.]/g, ""));
+  cartContainer.removeChild(cartItem);
+
+  // Deduct the price from the total
+  updateTotalPrice(-price);
+}
+
+// Fungsi untuk memperbarui total harga
+function updateTotalPrice(price) {
+  const totalPriceElement = document.getElementById("total-price");
+  const currentTotal = parseFloat(
+    totalPriceElement.textContent.replace(/[^\d.]/g, "")
+  );
+  const newTotal = currentTotal + price;
+  totalPriceElement.textContent = formatPrice(newTotal);
+}
+
+// Fungsi untuk memformat harga menjadi format yang diinginkan (misalnya: 100,000)
+function formatPrice(price) {
+  return price.toLocaleString("en-US", { style: "currency", currency: "USD" });
+}
+
+// Contoh penggunaan fungsi addToCart
+addToCart("Product 1", "product1.jpg", 19.99);
+addToCart("Product 2", "product2.jpg", 24.99);
+
+// Fungsi untuk menghapus produk dari cart
+function removeFromCart(event) {
+  const removeButton = event.target;
+  const cartItem = removeButton.parentElement;
+  const cartContainer = document.getElementById("cart-items");
+  const priceElement = cartItem.querySelector(".price");
+  const price = parseFloat(priceElement.textContent.replace(/[^\d.]/g, ""));
+  cartContainer.removeChild(cartItem);
+
+  // Kurangi total harga
+  updateTotalPrice(-price);
+}
+
+// Fungsi untuk menampilkan pemberitahuan
+function showNotification(message) {
+  const notification = document.createElement("div");
+  notification.classList.add("notification");
+  notification.textContent = message;
+
+  document.body.appendChild(notification);
+
+  // Hilangkan pemberitahuan setelah beberapa detik
+  setTimeout(function () {
+    notification.remove();
+  }, 3000);
+}
+
+// Fungsi untuk mengupdate total harga dan total produk
+function updateTotalPrice() {
+  const totalProductsElement = document.getElementById("total-products");
+  const totalPriceElement = document.getElementById("total-price");
+
+  const cartItems = document.getElementsByClassName("cart-item");
+  let totalProducts = 0;
+  let totalPrice = 0;
+
+  for (let i = 0; i < cartItems.length; i++) {
+    const priceElement = cartItems[i].querySelector(".price");
+    const price = parseFloat(priceElement.textContent.replace(/[^\d.]/g, ""));
+    totalProducts++;
+    totalPrice += price;
+  }
+
+  totalProductsElement.textContent = totalProducts;
+  totalPriceElement.textContent = "Rp. " + totalPrice.toFixed(3);
+}

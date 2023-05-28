@@ -388,11 +388,13 @@ section {
   z-index: 1200;
   padding: 2rem;
   text-align: center;
+  transition: right 0.3s;
 }
+
 .cart-items-container:hover {
-  /* transform: rotate(90deg); */
   color: #c98d83;
 }
+
 .cart-items-container.active {
   right: 0;
   box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
@@ -405,6 +407,7 @@ section {
   font-size: 4rem;
   cursor: pointer;
   color: var(--black);
+  transition: transform 0.3s, color 0.3s;
 }
 
 .cart-items-container #close-form:hover {
@@ -434,6 +437,7 @@ section {
   font-size: 2rem;
   color: var(--black);
   cursor: pointer;
+  transition: color 0.3s;
 }
 
 .cart-items-container .cart-item .fa-times:hover {
@@ -455,6 +459,51 @@ section {
   color: var(--primary-color);
   text-align: left;
 }
+.notification {
+  position: fixed;
+  top: 60rem;
+  right: 70rem;
+  background-color: #ffffffcb;
+  color: #333;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 14px;
+  z-index: 999;
+}
+.cart-items-container .cart-item .content .quantity {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  text-align: left;
+}
+
+#cart-summary {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.summary-row span {
+  font-family: "Alegreya Sans SC";
+  font-size: 20px;
+  color: #c98d83;
+}
+
+.summary-row #total-products {
+  color: #666;
+}
+
+.summary-row #total-price {
+  color: #ff6347;
+}
+
 
 /* ABOUT */
 .blogs {
