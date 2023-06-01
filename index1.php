@@ -7,6 +7,10 @@
     <script src="https://kit.fontawesome.com/3477ae541c.js" crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
     <link
@@ -32,10 +36,88 @@
         <a href="#about"> About</a>
         <a href="#menu"> Menu</a>
         <a href="#contact"> Contact</a>
-        <a href="login.php" > <span>Login</span></a>
       </nav>
 
+      <div class="profile-icon" id="profile-icon">
+        <img src="assets/images/profile.png" alt="Profile Icon" />
+        <div class="profile-dropdown hidden" id="profile-dropdown">
+          <ul>
+            <li><a id="profile-btn">Profil</a></li>
+            <li><a id="status-btn" onclick="openStatusPopup()">Status</a></li>
+            <li><a href="logout.php">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- PROFILE -->
+      <div class="profile-popup hidden" id="profile-popup">
+      <button class="close-button" id="profile-close-button">&times;</button>
+      <div class="profile-card">
+        <div class="profile-header">
+          <img src="assets/images/profile.png" alt="Profile Picture" />
+          <h2 class="profile-name" id="profileName"><span><?php echo $user["Name"]; ?></span></h2>
+        </div>
+        <div class="profile-details">
+          <p>
+            <strong>Alamat:<br /></strong>
+            <span id="profileAddress"><?php echo $user["Address"]; ?></span>
+          </p>
+          <p>
+            <strong>No. Telepon:<br /></strong>
+            <span id="profilePhone"><?php echo $user["Phone"]; ?></span>
+          </p>
+          <form action="profile.php" method="post">
+            <input type="text" name="editPhone" id="editPhone" class="edit-input" value="<?php echo $user["Phone"]; ?>" required />
+            <input type="text" name="editName" id="editName" class="edit-input" value="<?php echo $user["Name"]; ?>" required />
+            <input type="text" name="editAddress" id="editAddress" class="edit-input" value="<?php echo $user["Address"]; ?>" required />
+            <div class="profile-actions">
+              <button class="save-btn" type="submit" name="save">Simpan</button>
+            </div>
+          </form>
+          <?php if (isset($successMessage)): ?>
+            <p class="success-message"><?php echo $successMessage; ?></p>
+          <?php endif; ?>
+          <?php if (isset($errorMessage)): ?>
+            <p class="error-message"><?php echo $errorMessage; ?></p>
+          <?php endif; ?>
+        </div>
+      </div>
+      </div>
+  
+      <!-- STATUS PESANAN -->
+      <div class="status-popup hidden" id="status-popup">
+        <button class="close-button" id="status-close-button">&times;</button>
+        <div class="status-card">
+          <h2>Status <span>Pesanan</span></h2>
+          <div class="status">
+            <label for="status">Status:</label>
+            <select id="status" onchange="handleStatusChange()">
+              <option value="belum-diterima">Belum Diterima</option>
+              <option value="telah-diterima">Telah Diterima</option>
+            </select>
+          </div>
+          <div id="review-form" class="hidden">
+            <h3>Review Produk</h3>
+            <textarea id="review-text" placeholder="Tulis review Anda"></textarea>
+            <div class="rating">
+              <input type="radio" id="star5" name="rating" value="5" />
+              <label for="star5" title="Sangat Bagus">&#9733;</label>
+              <input type="radio" id="star4" name="rating" value="4" />
+              <label for="star4" title="Bagus">&#9733;</label>
+              <input type="radio" id="star3" name="rating" value="3" />
+              <label for="star3" title="Cukup">&#9733;</label>
+              <input type="radio" id="star2" name="rating" value="2" />
+              <label for="star2" title="Buruk">&#9733;</label>
+              <input type="radio" id="star1" name="rating" value="1" />
+              <label for="star1" title="Sangat Buruk">&#9733;</label>
+            </div>
+            <button class="save-btn" onclick="submitReview()">Submit Review</button>
+          </div>
+        </div>
+      </div>
+
       <div class="icons">
+        <div id="cart-btn" class="fas fa-shopping-cart"></div>
         <div id="menu-btn" class="fas fa-bars"></div>
       </div>
     </header>
@@ -107,35 +189,21 @@
     <!-- CART ITEM -->
     <div class="cart-items-container">
       <div id="close-form" class="fas fa-times"></div>
-      <h3 class="title">checkout</h3>
-      <div class="cart-item">
-          <span class="fas fa-times"></span>
-          <img src="assets/images/menu1.jpg" alt="">
-          <div class="content">
-              <h3>bakery item 1</h3>
-              <div class="price">$45.99/-</div>
-          </div>
-      </div>
-
-      <div class="cart-item">
-          <span class="fas fa-times"></span>
-          <img src="assets/images/menu2.jpg" alt="">
-          <div class="content">
-              <h3>bakery item 2</h3>
-              <div class="price">$15.99/-</div>
-          </div>
-      </div>
-
-      <div class="cart-item">
-          <span class="fas fa-times"></span>
-          <img src="assets/images/menu3.jpg" alt="">
-          <div class="content">
-              <h3>bakery item 3</h3>
-              <div class="price">$29.99/-</div>
-          </div>
-      </div>
-      <a href="ordering.html" class="btn"> checkout </a>
-  </div>
+      <h3 class="title">Checkout</h3>
+      <div id="cart-items"></div>
+      <div id="cart-summary">
+        <h3>Cart Summary</h3>
+        <div class="summary-row">
+          <span>Total Products:</span>
+          <span id="total-products">0</span>
+        </div>
+        <div class="summary-row">
+          <span>Total Price:</span>
+          <span id="total-price">Rp. 0</span>
+        </div>
+      </div>      
+      <a href="ordering.html" class="btn" id="submitOrder">Checkout</a>
+    </div>
 
   <!-- MENU -->
     <section class="menu" id="menu">
@@ -305,12 +373,6 @@
       </div>
     </section>
 
-
-    <script>
-      function redirectToLogin() {
-        window.location.href = "login.php";
-      }
-    </script>
     <!--products-preview-->
     <div id="popup1" class="popup">
       <div class="popup-content">
@@ -329,7 +391,7 @@
           vitamin C, dan antioksidan.</p>
         <p>Stok   : 12</p>
         <p class="price">Rp. 23.000</p>
-        <button class="btn" onclick="redirectToLogin()" >Add To Cart</button>
+        <button class="btn" onclick="addToCart('Cerry Pie', 'assets/images/menu1.jpg', '23.000')">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup1')">X</button>
       </div>
     </div>
@@ -351,7 +413,7 @@
           yang baik untuk kesehatan tulang dan pertumbuhan.</p>
         <p>Stok   : 12</p>
         <p class="price">Rp. 21.000</p>
-        <button class="btn" onclick="redirectToLogin()">Add To Cart</button>
+        <button class="btn" onclick="addToCart('Cheese Cake', 'assets/images/menu2.jpg','21.000')">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup2')">X</button>
       </div>
     </div>
@@ -373,7 +435,7 @@
           yang penting untuk kesehatan dan energi.</p>
         <p>Stok   : 12</p>
         <p class="price">Rp. 16.000</p>
-        <button class="btn" onclick="redirectToLogin()">Add To Cart</button>
+        <button class="btn" onclick="addToCart('Chocolate Crepe Cake', 'assets/images/menu3.jpg','16.000')">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup3')">X</button>
       </div>
     </div>
@@ -395,7 +457,7 @@
           mengisi kebutuhan camilan.</p>
         <p>Stok   : 12</p>
         <p class="price">Rp. 8.000</p>
-        <button class="btn" onclick="redirectToLogin()">Add To Cart</button>
+        <button class="btn" onclick="addToCart('Cookies', 'assets/images/menu4.jpg','8.000')">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup4')">X</button>
       </div>
     </div>
@@ -417,7 +479,7 @@
           dan lemak sehat yang memberikan energi dan nutrisi.</p>
         <p>Stok   : 12</p>
         <p class="price">Rp. 18.000</p>
-        <button class="btn" onclick="redirectToLogin()">Add To Cart</button>
+        <button class="btn" onclick="addToCart('Cream Jam Donat', 'assets/images/menu5.jpg','18.000')">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup5')">X</button>
       </div>
     </div>
@@ -439,7 +501,7 @@
           dan lemak sehat.</p>
         <p>Stok   : 12</p>
         <p class="price">Rp. 26.000</p>
-        <button class="btn" onclick="redirectToLogin()">Add To Cart</button>
+        <button class="btn" onclick="addToCart('Croissant', 'assets/images/menu6.jpg','26.000')">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup6')">X</button>
       </div>
     </div>
@@ -461,7 +523,7 @@
           penting untuk energi dan kesehatan tulang.</p>
         <p>Stok   : 12</p>
         <p class="price">Rp. 22.000</p>
-        <button class="btn" onclick="redirectToLogin()">Add To Cart</button>
+        <button class="btn" onclick="addToCart('Pancakes', 'assets/images/menu7.jpg','22.000')">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup7')">X</button>
       </div>
     </div>
@@ -483,7 +545,7 @@
           antioksidan dari buah strawberry yang menyehatkan.</p>
         <p>Stok   : 12</p>
         <p class="price">Rp. 14.000</p>
-        <button class="btn" onclick="redirectToLogin()">Add To Cart</button>
+        <button class="btn" onclick="addToCart('Strawberry Sandwich', 'assets/images/menu8.jpg','14.000')">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup8')">X</button>
       </div>
     </div>
@@ -506,7 +568,7 @@
           tambahan nutrisi.</p>
         <p class="stok">Stok   : 12</p>
         <p class="price">Rp. 23.000</p>
-        <button class="btn" onclick="redirectToLogin()">Add To Cart</button>
+        <button class="btn" onclick="addToCart('Waffles', 'assets/images/menu9.jpg','23.000')">Add To Cart</button>
         <button class="close-btn" onclick="closePopup('popup9')">X</button>
       </div>
     </div>
@@ -584,7 +646,7 @@
               </div>
               <div class="swiper-slide box">
                   <div class="client-review">
-                      <p>"The cherry pie is a burst of fruity goodness, with a flaky crust and a sweet-tart filling that is pure bliss."</p>
+                      <p>"The cherry pie is a burst of fruity goodness, with a flaky crust and a sweet-tart filling that is pure bliss.</br>......"</p>
                       <div class="stars" style="text-align: center;">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -630,8 +692,8 @@
             <h1 class="logoNamee"><span>CookieKu</span></h1>
           </div>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta
-            accusamus maxime quod.
+            Satisfy your cookie cravings at Cokieku! Discover irresistible recipes, 
+            baking secrets, and inspiration. Join our cookie-loving community and indulge in delicious delights. 
           </p>
         </div>
         <div class="box">

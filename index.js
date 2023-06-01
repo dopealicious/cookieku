@@ -64,12 +64,6 @@ statusBtn.addEventListener("click", function () {
   statusPopup.classList.remove("hidden"); // Menutup popup profil jika sedang terbuka
 });
 
-const logoutButton = document.getElementById("logout-btn");
-function handleLogout() {
-  window.location.href = "login.html";
-}
-logoutButton.addEventListener("click", handleLogout);
-
 document.querySelector(".save-btn").addEventListener("click", function () {
   var nameInput = document.getElementById("editName");
   var addressInput = document.getElementById("editAddress");
