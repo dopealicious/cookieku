@@ -3,6 +3,21 @@
   <head>
     <title>Form Order Cookies</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/3477ae541c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Alex Brush"
       rel="stylesheet"
@@ -16,12 +31,13 @@
     <div class="order">
       <h1><span>Form Order Cookies</span></h1>
       <div id="orderProfile" class="orderProfile">
-        <p><strong>Nama:</strong> <span id="orderProfileName"></span></p>
-        <p><strong>Alamat:</strong> <span id="orderProfileAddress"></span></p>
+        <p><strong>Nama:</strong> <span id="OrderProfileName"></span></p>
+        <p><strong>Alamat:</strong> <span id="OrderProfileAddress"></span></p>
         <p>
-          <strong>No. Telepon:</strong> <span id="orderProfilePhone"></span>
+          <strong>No. Telepon:</strong> <span id="OrderProfilePhone"></span>
         </p>
       </div>
+
       <form id="orderForm" onsubmit="submitForm(event)">
         <div>
           <label for="catatan">Catatan:</label>
@@ -47,15 +63,20 @@
         </div>
         <div id="bankTransferFields" class="paymentFields">
           <label for="bankName">Nama Bank:</label>
-          <input type="text" id="bankName" />
+          <input type="text" id="bankName" value="BCA" readonly />
           <label for="accountNumber">Nomor Rekening:</label>
-          <input type="text" id="accountNumber" />
+          <input
+            type="text"
+            id="accountNumber"
+            value="011087712887121"
+            readonly
+          />
         </div>
         <div id="ewalletFields" class="paymentFields">
           <label for="ewalletName">Nama E-wallet:</label>
-          <input type="text" id="ewalletName" />
+          <input type="text" id="ewalletName" value="Dana" readonly />
           <label for="ewalletId">ID E-wallet:</label>
-          <input type="text" id="ewalletId" />
+          <input type="text" id="ewalletId" value="087701887121" readonly />
         </div>
         <div class="form-group">
           <label for="ProofOfPayment">Proof of Payment:</label>
@@ -69,26 +90,21 @@
           <small>Accepted formats: JPG, JPEG, PNG</small>
           <img id="preview" src="#" alt="Preview" style="display: none" />
         </div>
-        <div class="total" id="total">
-          <h3>Rincian Pembayaran:</h3>
-          <table id="submitOrder">
-            <tbody>
-              <!-- Isi tabel akan di-generate menggunakan JavaScript -->
-              <tr>
-                <td>Subtotal Produk</td>
-                <td id="subtotal-price"></td>
-              </tr>
-              <tr>
-                <td>Biaya Layanan</td>
-                <td>Rp. 4.000</td>
-              </tr>
-              <tr>
-                <td>Total Pembayaran</td>
-                <td id="total-price-submit"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+
+        <table id="submitOrderTable">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <h3>Payment Details:</h3>
+        <div>Subtotal: <span id="subtotal-price"></span></div>
+        <div>Tax: <span id="tax-price"></span></div>
+        <div>Total: <span id="total-price-submit"></span></div>
 
         <div>
           <button class="btn" type="submit" onclick="openPopupp()">

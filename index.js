@@ -118,19 +118,17 @@ document.getElementById("profilePhone").addEventListener("click", function () {
   profilePhone.style.display = "none";
 });
 
-// FORM ORDER
-// Ambil nilai dari profil detail
-const profileNameElement = document.getElementById("orderProfileName");
-const profileAddressElement = document.getElementById("orderProfileAddress");
-const profilePhoneElement = document.getElementById("orderProfilePhone");
+document.addEventListener("DOMContentLoaded", function () {
+  var orderProfileName = document.getElementById("OrderProfileName");
+  var orderProfileAddress = document.getElementById("OrderProfileAddress");
+  var orderProfilePhone = document.getElementById("OrderProfilePhone");
 
-// Mengisi nilai dari profil ke dalam elemen HTML
-profileNameElement.textContent = profileName;
-profileAddressElement.textContent = profileAddress;
-profilePhoneElement.textContent = profilePhone;
-logoutButton.addEventListener("click", function () {
-  window.location.href = "login.html";
+  orderProfileName.textContent = "Novita Azahra";
+  orderProfileAddress.textContent = "Jl. Guru Bangkol, Mataram, Indonesia";
+  orderProfilePhone.textContent = "08123456789";
 });
+
+// FORM ORDER
 
 function openStatusPopup() {
   var statusPopup = document.getElementById("status-popup");
@@ -193,18 +191,20 @@ function submitForm(event) {
   event.preventDefault(); // Menghentikan submit form
 
   // Mengambil nilai-nilai input dari form
-  var name = document.getElementById("name").value;
-  var alamat = document.getElementById("alamat").value;
+  var name = document.getElementById("profileName").value;
+  var alamat = document.getElementById("profileAddress").value;
   var catatan = document.getElementById("catatan").value;
   var flavor = document.getElementById("flavor").value;
   var deliveryDate = document.getElementById("deliveryDate").value;
   // var ProofOfPayment = document.getElementById("ProofOfPayment").value;
-  var paymentMethod = document.getElementById("paymentMethod").value;
+
+  var paymentMethod = "BankTransfer"; // Nilai metode pembayaran yang telah ditentukan
+
   var message = "Terima kasih, " + name + "! Pesanan Anda telah diterima.";
 
   if (paymentMethod === "BankTransfer") {
-    var bankName = document.getElementById("bankName").value;
-    var accountNumber = document.getElementById("accountNumber").value;
+    var bankName = "BCA";
+    var accountNumber = "011087712887121";
 
     // Proses pembayaran dengan transfer bank
     message +=
@@ -213,8 +213,8 @@ function submitForm(event) {
       "\nNomor Rekening: " +
       accountNumber;
   } else if (paymentMethod === "Ewallet") {
-    var ewalletName = document.getElementById("ewalletName").value;
-    var ewalletId = document.getElementById("ewalletId").value;
+    var ewalletName = "Dana";
+    var ewalletId = "087701887121";
 
     // Proses pembayaran dengan dompet elektronik
     message +=
@@ -317,25 +317,6 @@ function closePopupp() {
   popup.style.display = "none";
 }
 
-// Data produk
-const products = [
-  {
-    name: "bakery item 1",
-    price: "$45.99/-",
-    image: "assets/images/menu1.jpg",
-  },
-  {
-    name: "bakery item 2",
-    price: "$15.99/-",
-    image: "assets/images/menu2.jpg",
-  },
-  {
-    name: "bakery item 3",
-    price: "$29.99/-",
-    image: "assets/images/menu3.jpg",
-  },
-];
-
 // CART
 function addToCart(productName, productImage, price) {
   const cartItem = document.createElement("div");
@@ -415,16 +396,6 @@ addToCart("Product 9", "product9.jpg", 23.0);
 
 // ...
 
-// // Fungsi untuk memperbarui total harga di bagian Submit Order
-// function updateSubmitOrderTotalPrice(price) {
-//   const totalPriceElement = document.getElementById("total-price-submit");
-//   const currentTotal = parseFloat(
-//     totalPriceElement.textContent.replace(/[^\d.]/g, "")
-//   );
-//   const newTotal = currentTotal + price;
-//   totalPriceElement.textContent = formatPrice(newTotal);
-// }
-
 // Fungsi untuk menampilkan pemberitahuan
 function showNotification(message) {
   const notification = document.createElement("div");
@@ -458,3 +429,43 @@ function updateTotalPrice() {
   totalProductsElement.textContent = totalProducts;
   totalPriceElement.textContent = "Rp. " + totalPrice.toFixed(3);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Mendapatkan elemen tabel dan tbody
+  const submitOrderTable = document.getElementById("submitOrderTable");
+  const tableBody = submitOrderTable.getElementsByTagName("tbody")[0];
+
+  // Mendapatkan data produk dari localStorage atau API
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  // Mendapatkan elemen total harga
+  const totalPriceElement = document.getElementById("total-price-submit");
+
+  // Menghitung subtotal
+  let subtotal = 0;
+
+  // Menambahkan setiap produk ke tabel dan mengakumulasikan subtotal
+  cartItems.forEach(function (item) {
+    const row = tableBody.insertRow();
+    const nameCell = row.insertCell(0);
+    const priceCell = row.insertCell(1);
+
+    nameCell.textContent = item.name;
+    priceCell.textContent = "Rp. " + item.price.toLocaleString();
+
+    subtotal += item.price;
+  });
+
+  // Menghitung pajak
+  const tax = subtotal * 0.1;
+
+  // Menghitung total pembayaran
+  const totalPrice = subtotal + tax;
+
+  // Menampilkan subtotal, pajak, dan total pembayaran
+  document.getElementById("subtotal-price").textContent =
+    "Rp. " + subtotal.toLocaleString();
+  document.getElementById("tax-price").textContent =
+    "Rp. " + tax.toLocaleString();
+  totalPriceElement.textContent = "Rp. " + totalPrice.toLocaleString();
+});
