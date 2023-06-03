@@ -9,6 +9,12 @@ body {
   font-family: "Alegreya Sans SC";
 }
 
+span {
+  font-family: "Alex Brush";
+  font-size: 42px;
+  color: #c98d83;
+}
+
 header {
   background-color: hsla(53, 22%, 93%, 0.882);
   color: #000000;
@@ -19,7 +25,7 @@ header {
 .container {
   min-height: 100vh;
   display: flex;
-  filter: brightness(90%);
+  filter: brightness(80%);
   /* align-items: center; */
   background: url(../assets/images/back.png) no-repeat;
   background-size: cover;
@@ -137,6 +143,68 @@ h2 {
 .dropdown-menu a {
   color: #333;
   text-decoration: none;
+}
+
+/* --------------------------------DATA PEMESANAN---------------------------------- */
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+/* Styling untuk tabel */
+#orderList {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Styling untuk header kolom */
+th {
+  background-color: #ecd0d0c7;
+  text-align: left;
+  padding: 8px;
+}
+table {
+  width: 100%;
+  border-bottom: 1px solid #764e4e;
+  padding: 8px;
+  border-collapse: collapse;
+  background-color: #ffffff; /* Warna latar belakang */
+  color: #333; /* Warna teks */
+}
+/* Styling untuk sel data */
+td {
+  padding: 8px;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* Styling untuk baris ganjil */
+tr:nth-child(even) {
+  border-bottom: 1px solid #ffffff;
+}
+
+/* Styling untuk baris saat dihover */
+tr:hover {
+  background-color: #dfb9b9;
+}
+/* Styling untuk tombol */
+.btn {
+  background: #c98d83;
+  border: 1px solid #ccc;
+  margin-top: 0.5rem;
+  display: inline-block;
+  padding: 9px 17px;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  border-radius: 0.3rem;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+/* Styling saat tombol dihover */
+.btn:hover {
+  font-size: 1rem;
+  color: #ffffff;
 }
 
 /* STOK KUE */

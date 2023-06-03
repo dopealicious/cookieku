@@ -1,84 +1,142 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Admin Panel - Data Pemesanan</title>
-  <style>
-    /* CSS styling code */
-  </style>
-</head>
-<body>
-  <h1>Admin Panel - Data Pemesanan</h1>
+  <head>
+    <title>Admin Panel - Data Pemesanan</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Alex Brush"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Alegreya Sans SC"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>Admin Panel - <span>Data Pemesanan</span></h2>
 
-  <div id="orderList">
-    <table>
-      <thead>
-        <tr>
-          <th>ID Pemesanan</th>
-          <th>ID Customer</th>
-          <th>Nama Pelanggan</th>
-          <th>Email</th>
-          <th>Nama Kue</th>
-          <th>Harga Kue</th>
-          <th>Total Pesanan</th>
-          <th>Total Harga Pesanan</th>
-          <th>Tanggal Pemesanan</th>
-          <th>Status</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Data pemesanan akan ditambahkan secara dinamis menggunakan JavaScript -->
-      </tbody>
-    </table>
-  </div>
+    <div class="container">
+      <aside>
+        <ul class="menu">
+          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="#">Data Customer</a></li>
+          <li><a href="../admin/data-pemesanan.html">Data Pemesanan</a></li>
+          <li><a href="../admin/data-stokkue.html">Data Stok Kue</a></li>
+          <li><a href="../admin/data-review.html">Data Review</a></li>
+          <li><a href="../logout.php" class="active">Logout</a></li>
+        </ul>
+      </aside>
 
-  <div id="editOrderForm" style="display: none;">
-    <h2>Edit Pemesanan</h2>
-    <form id="editOrderForm">
-      <input type="hidden" id="editOrderId">
-      <label for="editOrderCustomerId">ID Customer:</label>
-      <input type="text" id="editOrderCustomerId">
-      <label for="editOrderName">Nama Pelanggan:</label>
-      <input type="text" id="editOrderName">
-      <label for="editOrderEmail">Email:</label>
-      <input type="email" id="editOrderEmail">
-      <label for="editOrderCakeName">Nama Kue:</label>
-      <input type="text" id="editOrderCakeName">
-      <label for="editOrderCakePrice">Harga Kue:</label>
-      <input type="number" id="editOrderCakePrice">
-      <label for="editOrderQuantity">Total Pesanan:</label>
-      <input type="number" id="editOrderQuantity">
-      <label for="editOrderTotalPrice">Total Harga Pesanan:</label>
-      <input type="number" id="editOrderTotalPrice">
-      <label for="editOrderDate">Tanggal Pemesanan:</label>
-      <input type="date" id="editOrderDate">
-      <label for="editOrderStatus">Status:</label>
-      <select id="editOrderStatus">
-        <option value="Belum Diproses">Belum Diproses</option>
-        <option value="Dalam Proses">Dalam Proses</option>
-        <option value="Selesai">Selesai</option>
-      </select>
-      <button type="button" onclick="updateOrder()">Update</button>
-      <button type="button" onclick="cancelEdit()">Cancel</button>
-    </form>
-  </div>
+      <div id="orderList">
+        <table>
+          <thead>
+            <tr>
+              <th>ID Pemesanan</th>
+              <th>ID Customer</th>
+              <th>Nama Pelanggan</th>
+              <th>Email</th>
+              <th>Nama Kue</th>
+              <th>Harga Kue</th>
+              <th>Total Pesanan</th>
+              <th>Total Harga Pesanan</th>
+              <th>Tanggal Pemesanan</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Data pemesanan akan ditambahkan secara dinamis menggunakan JavaScript -->
+          </tbody>
+        </table>
+      </div>
 
-  <script>
-    // Data dummy untuk simulasi
-    let orders = [
-      { id: 1, customerId: 1, name: "John Doe", email: "john@example.com", cakeName: "Chocolate Cake", cakePrice: 15, quantity: 2, totalPrice: 30, date: "2023-05-28", status: "Belum Diproses" },
-      { id: 2, customerId: 2, name: "Jane Smith", email: "jane@example.com", cakeName: "Strawberry Cake", cakePrice: 12, quantity: 1, totalPrice: 12, date: "2023-05-29", status: "Dalam Proses" },
-      { id: 3, customerId: 3, name: "David Johnson", email: "david@example.com", cakeName: "Vanilla Cake", cakePrice: 10, quantity: 3, totalPrice: 30, date: "2023-05-30", status: "Selesai" }
-    ];
+      <div id="editOrderForm" style="display: none">
+        <h2>Edit Pemesanan</h2>
+        <form id="editOrderForm">
+          <input type="hidden" id="editOrderId" />
+          <label for="editOrderCustomerId">ID Customer:</label>
+          <input type="text" id="editOrderCustomerId" />
+          <label for="editOrderName">Nama Pelanggan:</label>
+          <input type="text" id="editOrderName" />
+          <label for="editOrderEmail">Email:</label>
+          <input type="email" id="editOrderEmail" />
+          <label for="editOrderCakeName">Nama Kue:</label>
+          <input type="text" id="editOrderCakeName" />
+          <label for="editOrderCakePrice">Harga Kue:</label>
+          <input type="number" id="editOrderCakePrice" />
+          <label for="editOrderQuantity">Total Pesanan:</label>
+          <input type="number" id="editOrderQuantity" />
+          <label for="editOrderTotalPrice">Total Harga Pesanan:</label>
+          <input type="number" id="editOrderTotalPrice" />
+          <label for="editOrderDate">Tanggal Pemesanan:</label>
+          <input type="date" id="editOrderDate" />
+          <label for="editOrderStatus">Status:</label>
+          <select id="editOrderStatus">
+            <option value="Belum Diproses">Belum Diproses</option>
+            <option value="Dalam Proses">Dalam Proses</option>
+            <option value="Selesai">Selesai</option>
+          </select>
+          <button type="button" onclick="updateOrder()">Update</button>
+          <button type="button" onclick="cancelEdit()">Cancel</button>
+        </form>
+      </div>
+    </div>
 
-    // Menampilkan data pemesanan pada tabel
-    function renderOrders() {
-      const orderTable = document.querySelector("#orderList tbody");
-      orderTable.innerHTML = "";
+    <script>
+      // Data dummy untuk simulasi
+      let orders = [
+        {
+          id: 1,
+          customerId: 1,
+          name: "John Doe",
+          email: "john@example.com",
+          cakeName: "Chocolate Cake",
+          cakePrice: 15,
+          quantity: 2,
+          totalPrice: 30,
+          date: "2023-05-28",
+          status: "Belum Diproses",
+        },
+        {
+          id: 2,
+          customerId: 2,
+          name: "Jane Smith",
+          email: "jane@example.com",
+          cakeName: "Strawberry Cake",
+          cakePrice: 12,
+          quantity: 1,
+          totalPrice: 12,
+          date: "2023-05-29",
+          status: "Dalam Proses",
+        },
+        {
+          id: 3,
+          customerId: 3,
+          name: "David Johnson",
+          email: "david@example.com",
+          cakeName: "Vanilla Cake",
+          cakePrice: 10,
+          quantity: 3,
+          totalPrice: 30,
+          date: "2023-05-30",
+          status: "Selesai",
+        },
+      ];
 
-      orders.forEach((order) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
+      // Menampilkan data pemesanan pada tabel
+      function renderOrders() {
+        const orderTable = document.querySelector("#orderList tbody");
+        orderTable.innerHTML = "";
+
+        orders.forEach((order) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
           <td>${order.id}</td>
           <td>${order.customerId}</td>
           <td>${order.name}</td>
@@ -95,94 +153,109 @@
           </td>
         `;
 
-        orderTable.appendChild(row);
-      });
-    }
+          orderTable.appendChild(row);
+        });
+      }
 
-    // Mengambil data pemesanan berdasarkan ID
-    function getOrderById(id) {
-      return orders.find((order) => order.id === id);
-    }
+      // Mengambil data pemesanan berdasarkan ID
+      function getOrderById(id) {
+        return orders.find((order) => order.id === id);
+      }
 
-    // Menampilkan form edit dengan data pemesanan yang dipilih
-    function editOrder(id) {
-      const order = getOrderById(id);
+      // Menampilkan form edit dengan data pemesanan yang dipilih
+      function editOrder(id) {
+        const order = getOrderById(id);
 
-      if (order) {
+        if (order) {
+          const editOrderIdInput = document.getElementById("editOrderId");
+          const editOrderCustomerIdInput = document.getElementById(
+            "editOrderCustomerId"
+          );
+          const editOrderNameInput = document.getElementById("editOrderName");
+          const editOrderEmailInput = document.getElementById("editOrderEmail");
+          const editOrderCakeNameInput =
+            document.getElementById("editOrderCakeName");
+          const editOrderCakePriceInput =
+            document.getElementById("editOrderCakePrice");
+          const editOrderQuantityInput =
+            document.getElementById("editOrderQuantity");
+          const editOrderTotalPriceInput = document.getElementById(
+            "editOrderTotalPrice"
+          );
+          const editOrderDateInput = document.getElementById("editOrderDate");
+          const editOrderStatusInput =
+            document.getElementById("editOrderStatus");
+
+          editOrderIdInput.value = order.id;
+          editOrderCustomerIdInput.value = order.customerId;
+          editOrderNameInput.value = order.name;
+          editOrderEmailInput.value = order.email;
+          editOrderCakeNameInput.value = order.cakeName;
+          editOrderCakePriceInput.value = order.cakePrice;
+          editOrderQuantityInput.value = order.quantity;
+          editOrderTotalPriceInput.value = order.totalPrice;
+          editOrderDateInput.value = order.date;
+          editOrderStatusInput.value = order.status;
+
+          document.getElementById("orderList").style.display = "none";
+          document.getElementById("editOrderForm").style.display = "block";
+        }
+      }
+
+      // Mengupdate data pemesanan berdasarkan input dari form edit
+      function updateOrder() {
         const editOrderIdInput = document.getElementById("editOrderId");
-        const editOrderCustomerIdInput = document.getElementById("editOrderCustomerId");
+        const editOrderCustomerIdInput = document.getElementById(
+          "editOrderCustomerId"
+        );
         const editOrderNameInput = document.getElementById("editOrderName");
         const editOrderEmailInput = document.getElementById("editOrderEmail");
-        const editOrderCakeNameInput = document.getElementById("editOrderCakeName");
-        const editOrderCakePriceInput = document.getElementById("editOrderCakePrice");
-        const editOrderQuantityInput = document.getElementById("editOrderQuantity");
-        const editOrderTotalPriceInput = document.getElementById("editOrderTotalPrice");
+        const editOrderCakeNameInput =
+          document.getElementById("editOrderCakeName");
+        const editOrderCakePriceInput =
+          document.getElementById("editOrderCakePrice");
+        const editOrderQuantityInput =
+          document.getElementById("editOrderQuantity");
+        const editOrderTotalPriceInput = document.getElementById(
+          "editOrderTotalPrice"
+        );
         const editOrderDateInput = document.getElementById("editOrderDate");
         const editOrderStatusInput = document.getElementById("editOrderStatus");
 
-        editOrderIdInput.value = order.id;
-        editOrderCustomerIdInput.value = order.customerId;
-        editOrderNameInput.value = order.name;
-        editOrderEmailInput.value = order.email;
-        editOrderCakeNameInput.value = order.cakeName;
-        editOrderCakePriceInput.value = order.cakePrice;
-        editOrderQuantityInput.value = order.quantity;
-        editOrderTotalPriceInput.value = order.totalPrice;
-        editOrderDateInput.value = order.date;
-        editOrderStatusInput.value = order.status;
+        const id = parseInt(editOrderIdInput.value);
+        const order = getOrderById(id);
 
-        document.getElementById("orderList").style.display = "none";
-        document.getElementById("editOrderForm").style.display = "block";
+        if (order) {
+          order.customerId = parseInt(editOrderCustomerIdInput.value);
+          order.name = editOrderNameInput.value;
+          order.email = editOrderEmailInput.value;
+          order.cakeName = editOrderCakeNameInput.value;
+          order.cakePrice = parseFloat(editOrderCakePriceInput.value);
+          order.quantity = parseInt(editOrderQuantityInput.value);
+          order.totalPrice = parseFloat(editOrderTotalPriceInput.value);
+          order.date = editOrderDateInput.value;
+          order.status = editOrderStatusInput.value;
+
+          renderOrders();
+
+          cancelEdit();
+        }
       }
-    }
 
-    // Mengupdate data pemesanan berdasarkan input dari form edit
-    function updateOrder() {
-      const editOrderIdInput = document.getElementById("editOrderId");
-      const editOrderCustomerIdInput = document.getElementById("editOrderCustomerId");
-      const editOrderNameInput = document.getElementById("editOrderName");
-      const editOrderEmailInput = document.getElementById("editOrderEmail");
-      const editOrderCakeNameInput = document.getElementById("editOrderCakeName");
-      const editOrderCakePriceInput = document.getElementById("editOrderCakePrice");
-      const editOrderQuantityInput = document.getElementById("editOrderQuantity");
-      const editOrderTotalPriceInput = document.getElementById("editOrderTotalPrice");
-      const editOrderDateInput = document.getElementById("editOrderDate");
-      const editOrderStatusInput = document.getElementById("editOrderStatus");
+      // Membatalkan proses edit dan menampilkan kembali tabel data pemesanan
+      function cancelEdit() {
+        document.getElementById("orderList").style.display = "block";
+        document.getElementById("editOrderForm").style.display = "none";
+      }
 
-      const id = parseInt(editOrderIdInput.value);
-      const order = getOrderById(id);
-
-      if (order) {
-        order.customerId = parseInt(editOrderCustomerIdInput.value);
-        order.name = editOrderNameInput.value;
-        order.email = editOrderEmailInput.value;
-        order.cakeName = editOrderCakeNameInput.value;
-        order.cakePrice = parseFloat(editOrderCakePriceInput.value);
-        order.quantity = parseInt(editOrderQuantityInput.value);
-        order.totalPrice = parseFloat(editOrderTotalPriceInput.value);
-        order.date = editOrderDateInput.value;
-        order.status = editOrderStatusInput.value;
-
+      // Menghapus data pemesanan berdasarkan ID
+      function deleteOrder(id) {
+        orders = orders.filter((order) => order.id !== id);
         renderOrders();
-
-        cancelEdit();
       }
-    }
 
-    // Membatalkan proses edit dan menampilkan kembali tabel data pemesanan
-    function cancelEdit() {
-      document.getElementById("orderList").style.display = "block";
-      document.getElementById("editOrderForm").style.display = "none";
-    }
-
-    // Menghapus data pemesanan berdasarkan ID
-    function deleteOrder(id) {
-      orders = orders.filter((order) => order.id !== id);
-      renderOrders();
-    }
-
-    // Memanggil fungsi renderOrders saat halaman dimuat
-    window.onload = renderOrders;
-  </script>
-</body>
+      // Memanggil fungsi renderOrders saat halaman dimuat
+      window.onload = renderOrders;
+    </script>
+  </body>
 </html>
