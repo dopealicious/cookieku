@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel - Data Review</title>
+  <style>
+    /* CSS styling code */
+  </style>
+</head>
+<body>
+  <h1>Admin Panel - Data Review</h1>
+
+  <div id="reviewList">
+    <table>
+      <thead>
+        <tr>
+          <th>ID Review</th>
+          <th>ID Customer</th>
+          <th>ID Pesanan</th>
+          <th>Nama</th>
+          <th>Email</th>
+          <th>Review</th>
+          <th>Rate</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data review akan ditambahkan secara dinamis menggunakan JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+  <div id="editReviewForm" style="display: none;">
+    <h2>Edit Review</h2>
+    <form>
+      <input type="hidden" id="editReviewId">
+      <label for="editReviewName">Nama:</label>
+      <input type="text" id="editReviewName" required>
+      <label for="editReviewEmail">Email:</label>
+      <input type="email" id="editReviewEmail" required>
+      <label for="editReviewReview">Review:</label>
+      <textarea id="editReviewReview" required></textarea>
+      <label for="editReviewRate">Rate:</label>
+      <input type="number" id="editReviewRate" min="1" max="5" required>
+      <button type="button" class="btn" onclick="updateReview()">Update</button>
+      <button type="button" class="btn" onclick="cancelEdit()">Batal</button>
+    </form>
+  </div>
+
+  <script>
+    // Data dummy untuk simulasi
+    let reviews = [
+      { id: 1, customerId: 1, orderId: 1, name: "John Doe", email: "john@example.com", review: "Great product!", rate: 5 },
+      { id: 2, customerId: 2, orderId: 2, name: "Jane Smith", email: "jane@example.com", review: "Excellent service!", rate: 4 },
+      { id: 3, customerId: 3, orderId: 3, name: "David Johnson", email: "david@example.com", review: "Highly recommended!", rate: 5 }
+    ];
+
+    let selectedReviewIndex = null;
+
+    // Menampilkan data review pada tabel
+    function renderReviews() {
+      const reviewTable = document.querySelector("#reviewList tbody");
+      reviewTable.innerHTML = "";
+
+      reviews.forEach((review, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${review.id}</td>
+          <td>${review.customerId}</td>
+          <td>${review.orderId}</td>
+          <td>${review.name}</td>
+          <td>${review.email}</td>
+          <td>${review.review}</td>
+          <td>${review.rate}</td>
+          <td>
+            <button class="btn" onclick="editReview(${index})">Edit</button>
+            <button class="btn" onclick="deleteReview(${index})">Hapus</button>
+          </td>
+        `;
+
+        reviewTable.appendChild(row);
+      });
+    }
+
+    // Menghapus review
+    function deleteReview(index) {
+      reviews.splice(index, 1);
+      renderReviews();
+    }
+
+    // Mengedit review
+    function editReview(index) {
+      selectedReviewIndex = index;
+
+      const review = reviews[index];
+      document.querySelector("#editReviewId").value = review.id;
+      document.querySelector("#editReviewName").value = review.name;
+      document.querySelector("#editReviewEmail").value = review.email;
+      document.querySelector("#editReviewReview").value = review.review;
+      document.querySelector("#editReviewRate").value = review.rate;
+
+      document.querySelector("#reviewList").style.display = "none";
+      document.querySelector("#editReviewForm").style.display = "block";
+    }
+
+    // Mengupdate review
+    function updateReview() {
+      const reviewId = document.querySelector("#editReviewId").value;
+      const name = document.querySelector("#editReviewName").value;
+      const email = document.querySelector("#editReviewEmail").value;
+      const review = document.querySelector("#editReviewReview").value;
+      const rate = document.querySelector("#editReviewRate").value;
+
+      const updatedReview = {
+        id: reviewId,
+        customerId: reviews[selectedReviewIndex].customerId,
+        orderId: reviews[selectedReviewIndex].orderId,
+        name: name,
+        email: email,
+        review: review,
+        rate: rate
+      };
+
+      reviews[selectedReviewIndex] = updatedReview;
+
+      renderReviews();
+
+      cancelEdit();
+    }
+
+    // Membatalkan proses pengeditan
+    function cancelEdit() {
+      selectedReviewIndex = null;
+      document.querySelector("#editReviewForm").reset();
+      document.querySelector("#reviewList").style.display = "block";
+      document.querySelector("#editReviewForm").style.display = "none";
+    }
+
+    // Memanggil fungsi renderReviews saat halaman dimuat
+    window.onload = renderReviews;
+  </script>
+</body>
+</html>
