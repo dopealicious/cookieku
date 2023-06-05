@@ -53,6 +53,7 @@
               <th>Total Pesanan</th>
               <th>Total Harga Pesanan</th>
               <th>Tanggal Pemesanan</th>
+              <th>Bukti Transfer</th>
               <th>Status</th>
               <th></th>
             </tr>
@@ -83,7 +84,9 @@
           <input type="number" id="editOrderTotalPrice" />
           <label for="editOrderDate">Tanggal Pemesanan:</label>
           <input type="date" id="editOrderDate" />
-          <label for="editOrderStatus">Status:</label>
+          <label for="uploadProof">Bukti Transfer:</label>
+          <input type="file" id="uploadProof" accept="image/*" />
+          <img id="proofImage" src="" alt="Bukti Transfer" />
           <select id="editOrderStatus">
             <option value="Belum Diproses">Belum Diterima</option>
             <option value="Dalam Proses">Sudah Diterima</option>
@@ -109,6 +112,7 @@
           quantity: 2,
           totalPrice: 30,
           date: "2023-05-28",
+          image: "coklat.jpg",
           status: "Belum Diproses",
         },
         {
@@ -121,6 +125,7 @@
           quantity: 1,
           totalPrice: 12,
           date: "2023-05-29",
+          image: "coklat.jpg",
           status: "Dalam Proses",
         },
         {
@@ -133,6 +138,7 @@
           quantity: 3,
           totalPrice: 30,
           date: "2023-05-30",
+          image: "coklat.jpg",
           status: "Selesai",
         },
       ];
@@ -154,10 +160,11 @@
           <td>${order.quantity}</td>
           <td>${order.totalPrice}</td>
           <td>${order.date}</td>
+          <td><img src="${order.image}" alt="Bukti Transfer" width="50" height="50"></td>
           <td>${order.status}</td>
           <td>
-            <button class="btn" onclick="editOrder(${order.id})">Edit</button>
-            <button class="btn" onclick="deleteOrder(${order.id})">Delete</button>
+            <button class="btn" onclick="editOrder(${order.id})"><i class="fas fa-edit"></i></button>
+            <button class="btn" onclick="deleteOrder(${order.id})"><i class="fas fa-trash-alt"></i></button>
           </td>
         `;
 
@@ -190,6 +197,7 @@
           const editOrderTotalPriceInput = document.getElementById(
             "editOrderTotalPrice"
           );
+          const proofImageInput = document.getElementById("editproofImage"); //bukti transfer
           const editOrderDateInput = document.getElementById("editOrderDate");
           const editOrderStatusInput =
             document.getElementById("editOrderStatus");
@@ -203,6 +211,7 @@
           editOrderQuantityInput.value = order.quantity;
           editOrderTotalPriceInput.value = order.totalPrice;
           editOrderDateInput.value = order.date;
+          proofImageInput;
           editOrderStatusInput.value = order.status;
 
           document.getElementById("orderList").style.display = "none";

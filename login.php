@@ -100,7 +100,7 @@ if (isset($_POST["login"])) {
           <h1>Welcome back!</h1>
           <input id="email-logIn" type="email" placeholder="Email" name="Email" required />
           <input id="password-logIn" type="password" placeholder="Password" name="Password" required />
-          <a href="#">Forgot your password?</a>
+          <a href="admin/adminlogin.html" >Forgot your password?</a>
           <button id="login" type="submit" name="login">Log In</button>
         </form>
       </div>

@@ -131,8 +131,8 @@
           <td>${review.review}</td>
           <td>${review.rate}</td>
           <td>
-            <button class="btn" onclick="editReview(${index})">Edit</button>
-            <button class="btn" onclick="deleteReview(${index})">Hapus</button>
+            <button class="btn" onclick="editReview(${index})"><i class="fas fa-edit"></i></button>
+            <button class="btn" onclick="deleteReview(${index})"><i class="fas fa-trash-alt"></i></button>
           </td>
         `;
 
@@ -188,8 +188,6 @@
 
       // Membatalkan proses pengeditan
       function cancelEdit() {
-        selectedReviewIndex = null;
-        document.querySelector("#editReviewForm").reset();
         document.querySelector("#reviewList").style.display = "block";
         document.querySelector("#editReviewForm").style.display = "none";
       }

@@ -42,6 +42,7 @@
 
       <div id="cakeList">
         <table>
+          <button class="btn" href="#addCakeForm">Tambah</button>
           <thead>
             <tr>
               <th>ID Menu</th>
@@ -59,7 +60,8 @@
         </table>
       </div>
     </div>
-    <div id="addCakeForm">
+
+    <div id="addCakeForm" style="display: none">
       <h2>Tambah Kue</h2>
       <div class="form-group">
         <label for="cakeID">ID Menu:</label>
@@ -89,14 +91,6 @@
     </div>
 
     <div id="editCakeForm" style="display: none">
-      <button class="back-button" onclick="kembaliKeMenuUtama()">
-        <img
-          src="../assets/images/tombol-back.png"
-          alt="Back"
-          width="60"
-          height="30"
-        />
-      </button>
       <h2>Edit Kue</h2>
       <div class="form-group">
         <label for="editCakeID">ID Menu:</label>
@@ -170,8 +164,8 @@
           <td>${cake.stock}</td>
           <td>${cake.detail}</td>
           <td><img src="${cake.image}" width="100" height="100"></td>
-          <td><button class="btn" onclick="editCake(${index})">Edit</button></td>
-          <td><button class="btn" onclick="deleteCake(${index})">Hapus</button></td>
+          <td><button class="btn" onclick="editCake(${index})"><i class="fas fa-edit"></i></button></td>
+          <td><button class="btn" onclick="deleteCake(${index})"><i class="fas fa-trash-alt"></i></button></td>
         `;
 
           cakeTable.appendChild(row);
@@ -220,14 +214,14 @@
       function editCake(index) {
         selectedCakeIndex = index;
         const cake = cakes[index];
-        document.querySelector("#editCakeID").value = cake.id;
-        document.querySelector("#editCakeName").value = cake.name;
-        document.querySelector("#editCakePrice").value = cake.price;
-        document.querySelector("#editCakeStock").value = cake.stock;
-        document.querySelector("#editCakeDetail").value = cake.detail;
-        document.querySelector("#editCakeImage").value = cake.image;
-        document.querySelector("#addCakeForm").style.display = "none";
-        document.querySelector("#editCakeForm").style.display = "block";
+        document.getElementById("editCakeID").value = cake.id;
+        document.getElementById("editCakeName").value = cake.nama;
+        document.getElementById("editCakePrice").value = cake.harga;
+        document.getElementById("editCakeStock").value = cake.stok;
+        document.getElementById("editCakeDetail").value = cake.detail;
+        document.getElementById("editCakeImage").value = cake.gambar;
+        document.getElementById("addCakeForm").style.display = "none";
+        document.getElementById("editCakeForm").style.display = "block";
       }
 
       // Mengupdate data kue yang diedit
@@ -242,11 +236,11 @@
         if (newID && newName && newPrice && newStock && newDetail && newImage) {
           const updatedCake = {
             id: newID,
-            name: newName,
-            price: parseInt(newPrice),
-            stock: parseInt(newStock),
+            nama: newName,
+            harga: parseInt(newPrice),
+            stok: parseInt(newStock),
             detail: newDetail,
-            image: newImage,
+            gambar: newImage,
           };
 
           cakes[selectedCakeIndex] = updatedCake;
@@ -287,6 +281,6 @@
       window.onload = renderCakes;
     </script>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
   </body>
 </html>

@@ -6,5 +6,40 @@ adminInfo.addEventListener("click", function () {
 });
 
 function kembaliKeMenuUtama() {
-  window.location.href = "admin.html";
+  window.location.href = "index.html";
 }
+
+const signInButton = document.getElementById("signIn");
+const container = document.getElementById("container");
+const logInButton = document.getElementById("login");
+
+let username = "";
+let userPassword = "";
+
+var email = document.getElementById("email-logIn");
+email.addEventListener("input", (e) => {
+  username = e.target.value;
+});
+
+var password = document.getElementById("password-logIn");
+password.addEventListener("input", (e) => {
+  userPassword = e.target.value;
+});
+
+// var password = document.getElementById("password").value;
+
+function login() {
+  if (username == "") {
+    alert("input email first!");
+  } else if (userPassword == "") {
+    alert("input password!");
+  } else {
+    alert("login success!");
+    window.location.href = "admin.html";
+    exit;
+  }
+}
+
+logInButton.addEventListener("click", () => {
+  login();
+});
