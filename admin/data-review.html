@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Admin Panel - Data Review</title>
+    <title>Admin Panel - <span>Data Review</span></title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -19,12 +19,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <button class="back-button" onclick="kembaliKeMenuUtama()">
+      <img
+        src="../assets/images/tombol-back.png"
+        alt="Back"
+        width="60"
+        height="30"
+      />
+    </button>
     <h2>Admin Panel - Data Review</h2>
 
     <div class="container">
       <aside>
         <ul class="menu">
-          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="../admin/admin.html" class="active">Dashboard</a></li>
           <li><a href="#">Data Customer</a></li>
           <li><a href="../admin/data-pemesanan.html">Data Pemesanan</a></li>
           <li><a href="../admin/data-stokkue.html">Data Stok Kue</a></li>
@@ -189,5 +197,6 @@
       // Memanggil fungsi renderReviews saat halaman dimuat
       window.onload = renderReviews;
     </script>
+    <script src="script.js"></script>
   </body>
 </html>

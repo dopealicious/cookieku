@@ -19,12 +19,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <button class="back-button" onclick="kembaliKeMenuUtama()">
+      <img
+        src="../assets/images/tombol-back.png"
+        alt="Back"
+        width="60"
+        height="30"
+      />
+    </button>
     <h2>Admin Panel - <span>Data Pemesanan</span></h2>
-
     <div class="container">
       <aside>
         <ul class="menu">
-          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="../admin/admin.html" class="active">Dashboard</a></li>
           <li><a href="#">Data Customer</a></li>
           <li><a href="../admin/data-pemesanan.html">Data Pemesanan</a></li>
           <li><a href="../admin/data-stokkue.html">Data Stok Kue</a></li>
@@ -78,13 +85,14 @@
           <input type="date" id="editOrderDate" />
           <label for="editOrderStatus">Status:</label>
           <select id="editOrderStatus">
-            <option value="Belum Diproses">Belum Diproses</option>
-            <option value="Dalam Proses">Dalam Proses</option>
-            <option value="Selesai">Selesai</option>
+            <option value="Belum Diproses">Belum Diterima</option>
+            <option value="Dalam Proses">Sudah Diterima</option>
           </select>
-          <button type="button" onclick="updateOrder()">Update</button>
-          <button type="button" onclick="cancelEdit()">Cancel</button>
         </form>
+        <button class="btn" type="button" onclick="updateOrder()">
+          Update
+        </button>
+        <button class="btn" type="button" onclick="cancelEdit()">Cancel</button>
       </div>
     </div>
 
@@ -257,5 +265,6 @@
       // Memanggil fungsi renderOrders saat halaman dimuat
       window.onload = renderOrders;
     </script>
+    <script src="script.js"></script>
   </body>
 </html>

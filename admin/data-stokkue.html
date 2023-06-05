@@ -19,11 +19,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>Admin Panel - Data Stok Kue</h2>
+    <button class="back-button" onclick="kembaliKeMenuUtama()">
+      <img
+        src="../assets/images/tombol-back.png"
+        alt="Back"
+        width="60"
+        height="30"
+      />
+    </button>
+    <h2>Admin Panel - <span>Data Stok Kue</span></h2>
     <div class="container">
       <aside>
         <ul class="menu">
-          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="../admin/admin.html" class="active">Dashboard</a></li>
           <li><a href="#">Data Customer</a></li>
           <li><a href="../admin/data-pemesanan.html">Data Pemesanan</a></li>
           <li><a href="../admin/data-stokkue.html">Data Stok Kue</a></li>
@@ -31,6 +39,7 @@
           <li><a href="../logout.php" class="active">Logout</a></li>
         </ul>
       </aside>
+
       <div id="cakeList">
         <table>
           <thead>
@@ -80,6 +89,14 @@
     </div>
 
     <div id="editCakeForm" style="display: none">
+      <button class="back-button" onclick="kembaliKeMenuUtama()">
+        <img
+          src="../assets/images/tombol-back.png"
+          alt="Back"
+          width="60"
+          height="30"
+        />
+      </button>
       <h2>Edit Kue</h2>
       <div class="form-group">
         <label for="editCakeID">ID Menu:</label>
@@ -269,5 +286,7 @@
       // Memanggil fungsi renderCakes saat halaman dimuat
       window.onload = renderCakes;
     </script>
+
+    <script src="script.js"></script>
   </body>
 </html>

@@ -279,36 +279,6 @@ function submitForm(event) {
 
   // Panggil fungsi untuk menghasilkan isi tabel rincian pembayaran
   generatePaymentDetails();
-
-  // STRUK
-  var orderSummary = document.getElementById("orderSummary");
-  orderSummary.innerHTML = `
-  <div class="card">
-    <h2>Rincian Pesanan</h2>
-    <p><strong>Nama:</strong> ${name}</p>
-    <p><strong>Alamat:</strong> ${alamat}</p>
-    <p><strong>Catatan:</strong> ${catatan}</p>
-    <p><strong>Rasa:</strong> ${flavor}</p>
-    <p><strong>Tanggal Pengambilan:</strong> ${deliveryDate}</p>
-    <p><strong>Metode Pembayaran:</strong> ${paymentMethod}</p>
-    <p><strong>Total Pembayaran:</strong> Rp.154.000</p>
-  </div>
-`;
-
-  alert(message);
-  // Reset form
-  document.getElementById("orderForm").reset();
-}
-
-// STRUK
-function openPopupp() {
-  var popup = document.getElementById("popupp");
-  popup.style.display = "block";
-}
-
-function closePopupp() {
-  var popup = document.getElementById("popupp");
-  popup.style.display = "none";
 }
 
 // CART
