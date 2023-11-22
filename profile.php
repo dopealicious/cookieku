@@ -10,7 +10,7 @@ function getDatabaseConnection()
     $servername = 'localhost';
     $username = 'root';
     $password = '';
-    $database = 'database_name';
+    $database = 'cookieku';
 
     // Membuat koneksi ke database
     $connection = new mysqli($host, $username, $password, $database);

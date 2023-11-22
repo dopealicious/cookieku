@@ -5,8 +5,8 @@ adminInfo.addEventListener("click", function () {
   dropdownMenu.classList.toggle("show");
 });
 
-function kembaliKeMenuUtama() {
-  window.location.href = "index.html";
+function adminmainmenu() {
+  window.location.href = "admin-index.php";
 }
 
 const signInButton = document.getElementById("signIn");

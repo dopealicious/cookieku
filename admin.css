@@ -31,15 +31,34 @@ header {
   text-align: center;
 }
 
+
 .container {
   min-height: 100vh;
   display: flex;
   filter: brightness(80%);
   /* align-items: center; */
-  background: url(../assets/images/back.png) no-repeat;
+  background: url(assets/images/back.png) no-repeat;
   background-size: cover;
   background-position: center center;
 }
+
+
+.social-container {
+  margin: 20px 0;
+}
+
+.social-container a {
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+}
+
+
 
 aside {
   background-color: #f2f2f2;
@@ -91,8 +110,9 @@ main {
 }
 
 .dashboard-grid {
+  /* text-align: center; */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
 

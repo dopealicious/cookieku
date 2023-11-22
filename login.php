@@ -1,62 +1,45 @@
 <?php
 session_start();
-
-if (isset($_POST["signup"])) {
-  $email = $_POST["Email"];
-  $password = $_POST["Password"];
-  $username = $_POST["Username"];
-  $id_admin = $_POST["Id_admin"];
-
-  $servername = "localhost";
-  $db_username = "root";
-  $db_password = "";
-  $dbname = "cookieku";
-  
-  // Membuat koneksi ke database
-  $conn = new mysqli($servername, $db_username, $db_password, $dbname);
-
-  // Memeriksa koneksi
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-
-  $sql = "INSERT INTO login (Email, Password, Username, Id_admin) VALUES ('$email', '$password', '$username', '$id_admin')";
-
-  if ($conn->query($sql) === TRUE) {
-    $_SESSION["login"] = true;
-    header("Location: index1.php");
+if (isset($_SESSION["login"]) ) {
+    header("Location: login.php");
     exit;
-  } else {
-    $error = "Failed to create an account!";
-  }
 }
+
+include('functions.php');
+
 if (isset($_POST["login"])) {
-  $email = $_POST["Email"];
-  $password = $_POST["Password"];
+        $username = $_POST["username_customer"];
+        $pass = $_POST["pass_customer"];
+        $result = mysqli_query($conn, "SELECT * FROM customer WHERE
+                    username_customer = '$username'");
+        // cek username
+        if (mysqli_num_rows($result) === 1){
+            // cek password
+            $row = mysqli_fetch_assoc($result);
+            if (password_verify($pass, $row["pass_customer"]) ){
+                // set session
+                $_SESSION["login"] = true;
+                $_SESSION["id_customer"] = $row['id_customer'];
+                $_SESSION["name_customer"] = $row['name_customer'];
+                $_SESSION["username_customer"] = $row['username_customer'];
+                $_SESSION["pass_customer"] = $row['pass_customer'];
+                $_SESSION["email_customer"] = $row['email_customer'];
+                $_SESSION["address_customer"] = $row['address_customer'];        
+                $_SESSION["phone_customer"] = $row['phone_customer'];        
+                header("Location: customer-index.php");
+                exit;
+            }
+        }
+}
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "cookieku";
-
-  // Membuat koneksi ke database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-  // Memeriksa koneksi
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-
-  $sql = "SELECT * FROM login WHERE Email = '$email' AND Password = '$password'";
-  $result = $conn->query($sql);
-
-  if ($result->num_rows > 0) {
-    // Login berhasil
-    $_SESSION["login"] = true;
-    header("Location: index1.php");
-    exit;
+if (isset($_POST["register"]) ) {
+  if (registration($_POST) > 0 ) {
+      echo " <script> alert('Kamu berhasil mendaftar!');
+      document.location.href = 'login.php'
+      </script>
+      "; 
   } else {
-    $error = "Invalid email or password!";
+      echo mysqli_error($conn);
   }
 }
 ?>
@@ -85,40 +68,73 @@ if (isset($_POST["login"])) {
   <body>
     <div class="container" id="container">
       <div class="form-container sign-up-container">
-      <form action="index1.php" method="post" name="signup">
-  <!-- Other form elements -->
-        <h1>Sign Up!</h1>
-        <input type="text" placeholder="Username" name="Username" id="user-signUp" required />
-        <input type="email" placeholder="Email" name="Email" id="email-signUp" required />
-        <input type="password" placeholder="Password" name="Password" id="pass-signUp" required />
-        <button id="signup" type="submit" name="signup">Sign Up</button>
-      </form>
-
+        <form action="" method="post">
+          <h1>Create Account</h1>
+          <div class="social-container"></div>
+          <input
+            type="text"
+            placeholder="Nama"
+            name="name_customer"
+            id="name_customer" required
+          />
+          <input
+            type="text"
+            placeholder="Username"
+            name="username_customer"
+            id="username_customer" required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="pass_customer"
+            id="pass_customer" required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            name="email_customer"
+            id="email_customer" required
+          />
+          <input
+            type="text"
+            placeholder="Address"
+            name="address_customer"
+            id="address_customer" required
+          />
+          <input
+            type="number"
+            placeholder="Phone Number"
+            name="phone_customer"
+            id="phone_customer" required
+          />
+          <button type ="submit" name="register">Register!</button>
+          <!-- <button onclick="sign()">Sign Up</button> -->
+        </form>
       </div>
       <div class="form-container log-in-container">
-        <form action="index1.php" method="post" name="login">
+        <form action="" method="post">
           <h1>Welcome back!</h1>
-          <input id="email-logIn" type="email" placeholder="Email" name="Email" required />
-          <input id="password-logIn" type="password" placeholder="Password" name="Password" required />
-          <a href="admin/adminlogin.html" >Forgot your password?</a>
-          <button id="login" type="submit" name="login">Log In</button>
+          <input type="text" placeholder="Username" name="username_customer" id="username_customer"> 
+          <input type="password" placeholder="Password" name="pass_customer" id="pass_customer">
+          <a href="adminlogin.php">Administrator</a>
+          <button type="submit" name= "login">Login</button>
         </form>
       </div>
       <div class="overlay-container">
         <div class="overlay">
           <div class="overlay-panel overlay-left">
             <h1>Already have an account?</h1>
-            <p>Try to log in by pressing the button below!</p>
-            <button class="ghost" id="signIn">Sign In</button>
+            <p>Try to log-in by pressing button below!</p>
+            <button class="ghost" id="signin">Sign In</button>
           </div>
           <div class="overlay-panel overlay-right">
-            <h1>Don't have an account?</h1>
+            <h1>Don't have an account?!</h1>
             <p>Create your personal account and start your journey with us</p>
-            <button class="ghost" id="signUp">Sign Up</button>
+            <button class="ghost" id="signup">Sign Up</button>
           </div>
         </div>
       </div>
     </div>
-    <script src="./login.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>

@@ -1,3 +1,13 @@
+<?php
+session_start();
+include('functions.php');
+
+if (!isset($_SESSION["login"]) ) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,14 +25,14 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="admin.css" />
     <title>Admin Dashboard</title>
   </head>
   <body>
     <header>
       <div class="logoContent">
         <a href="#" class="logo"
-          ><img src="../assets/images/logo.png" alt=""
+          ><img src="assets/images/logo.png" alt=""
         /></a>
         <h1 class="logoName">CookieKu</h1>
       </div>
@@ -32,21 +42,21 @@
     <div class="container">
       <aside>
         <ul class="menu">
-          <li><a href="#" class="active">Dashboard</a></li>
-          <li><a href="#">Data Customer</a></li>
-          <li><a href="../admin/data-pemesanan.html">Data Pemesanan</a></li>
-          <li><a href="../admin/data-stokkue.html">Data Stok Kue</a></li>
-          <li><a href="../admin/data-review.html">Data Review</a></li>
-          <li><a href="../logout.php" class="active">Logout</a></li>
+          <li><a href="admin-index.php" class="active">Dashboard</a></li>
+          <li><a href="admin-customer-index.php">Data Customer</a></li>
+          <li><a href="admin-pesanan-index.php">Data Pemesanan</a></li>
+          <li><a href="admin-menu-index.php">Data Stok Kue</a></li>
+          <!-- <li><a href="admin-review-index.php">Data Review</a></li> -->
+          <li><a href="logout.php" class="active">Logout</a></li>
         </ul>
       </aside>
 
       <main>
         <div class="dashboard-grid">
           <div class="dashboard-item">
-            <a href="#" class="dashboard-link">
+            <a href="admin-customer-index.php" class="dashboard-link">
               <img
-                src="../assets/images/admin-customer.png"
+                src="assets/images/admin-customer.png"
                 alt="Content 2"
                 class="dashboard-image"
               />
@@ -54,9 +64,9 @@
             </a>
           </div>
           <div class="dashboard-item">
-            <a href="../admin/data-pemesanan.html" class="dashboard-link">
+            <a href="admin-pesanan-index.php" class="dashboard-link">
               <img
-                src="../assets/images/admin-pemesanan.png"
+                src="assets/images/admin-pemesanan.png"
                 alt="Content 3"
                 class="dashboard-image"
               />
@@ -64,29 +74,28 @@
             </a>
           </div>
           <div class="dashboard-item">
-            <a href="../admin/data-stokkue.html" class="dashboard-link">
+            <a href="admin-menu-index.php" class="dashboard-link">
               <img
-                src="../assets/images/admin-stok.png"
+                src="assets/images/admin-stok.png"
                 alt="Content 4"
                 class="dashboard-image"
               />
               <h2>Data Stok Kue</h2>
             </a>
           </div>
-          <div class="dashboard-item">
-            <a href="../admin/data-review.html" class="dashboard-link">
+          <!-- <div class="dashboard-item">
+            <a href="admin-review-index.php" class="dashboard-link">
               <img
-                src="../assets/images/admin-review.png"
+                src="assets/images/admin-review.png"
                 alt="Content 4"
                 class="dashboard-image"
               />
               <h2>Data Review</h2>
             </a>
-          </div>
+          </div> -->
         </div>
       </main>
     </div>
-
-    <script src="script.js"></script>
+    <script src="admin.js"></script>
   </body>
 </html>
